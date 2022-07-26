@@ -1,30 +1,35 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
-/** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 
 type ButtonProps = {
-  children: React.ReactNode;
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  label: string;
+  label?: string;
   size: "large" | "small";
+  backgroundColor: string;
+  theme?: 'primary' | 'secondary' | 'tertiary';
 }
 
-export const Button = ({ children, onClick, label }: ButtonProps) => {
+export const Button = ({ onClick, label, size, backgroundColor, theme }: ButtonProps) => {
   return (
-    <button css={style} onClick={onClick}>
-      {children} #{label}
+    <button css={[style({ backgroundColor, size }), themes[theme!]]} onClick={onClick}>
+      #{label}
     </button>
   )
 };
 
-const style = css`
+Button.defaultProps = {
+  theme: 'primary'
+};
+
+const style = ({ backgroundColor, size }: ButtonProps) => css`
   outline: none;
   border: none;
   box-sizing: border-box;
-  height: 2rem;
-  font-size: 0.875rem;
+  height: ${size === "small" ? "2rem" : "3rem"};
+  font-size: ${size === "small" ? "0.875rem" : "1.25rem"};
   padding: 0.5rem 1rem;
-  background: #20c997;
+  background: ${backgroundColor};
   color: white;
   border-radius: 0.25rem;
   line-height: 1;
@@ -39,3 +44,36 @@ const style = css`
     background: #12b886;
   }
 `;
+
+const themes = {
+  primary: css`
+    background: #20c997;
+    color: white;
+    &:hover {
+      background: #38d9a9;
+    }
+    &:active {
+      background: #12b886;
+    }
+  `,
+  secondary: css`
+    background: #e9ecef;
+    color: #343a40;
+    &:hover {
+      background: #f1f3f5;
+    }
+    &:active {
+      background: #dee2e6;
+    }
+  `,
+  tertiary: css`
+    background: none;
+    color: #20c997;
+    &:hover {
+      background: #e6fcf5;
+    }
+    &:active {
+      background: #c3fae8;
+    }
+  `
+};
