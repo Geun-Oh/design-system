@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
 type BadgeProps = {
-    innerText: String;
+    innerText: string;
     state: "Access" | "Warning" | "Error" | "New" | "Wait";
     size: "Large" | "Medium" | "Small";
 }
@@ -19,16 +19,22 @@ export const Badge = ({ innerText, state, size }: BadgeProps) => {
             border: none;
             box-sizing: border-box;
             background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            height: 3rem;
+            padding: 12px 16px;
+            border-radius: 16px;
+            height: 48px;
             font-size: ${BaseStyles.Text.Heading4};
             font-family: "Fira Code";
+            font-weight: ${BaseStyles.Text.Border3};
             div {
-            background: ${badgeTheme[state]};
-                width: "6px";
-                height: "6px";
-                border-radius: "3px";
+                position: relative;
+                float: right;
+                transition-duration: 0.5s;
+                transform: translate(16px, -24px);
+                background: ${badgeTheme[state]};
+                border-radius: 1px soild black;
+                width: 24px;
+                height: 24px;
+                border-radius: 12px;
             }
             `
         }
@@ -39,11 +45,11 @@ export const Badge = ({ innerText, state, size }: BadgeProps) => {
         Warning: `${BaseStyles.Color.Orange2}`,
         Error: `${BaseStyles.Color.Red1}`,
         New: `${BaseStyles.Color.Purple1}`,
-        Disabled: `${BaseStyles.Color.Black1}`,
+        Wait: `${BaseStyles.Color.Black1}`,
     }
 
     return (
-        <div css={style}>
+        <div css={style()}>
             {innerText}
             <div css={badgeTheme}></div>
         </div>
