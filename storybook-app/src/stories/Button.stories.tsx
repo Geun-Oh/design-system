@@ -7,24 +7,24 @@ export default {
   title: 'Components/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {label: "Primary", theme: "primary"};
+Default.args = { label: "Default", theme: "default" };
 
 // 템플릿에 새로운 버튼을 또 추가할 수 있다.
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Secondary', // 기본적으로 들어갈 arguments를 설정해준다.
-  theme: "secondary",
-};
+export const Link = Template.bind({});
+Link.args = { label: 'Link', theme: "link" };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = { label: "Tertiary", theme: "tertiary" };
+export const Warning = Template.bind({});
+Warning.args = { label: "Warning", theme: "warning" };
+
+export const Delete = Template.bind({});
+Delete.args = { label: "Delete", theme: "delete" };
+
+export const Disabled = Template.bind({});
+Disabled.args = { label: "Disabled", theme: "disabled" };
