@@ -7,7 +7,7 @@ type ButtonProps = {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   label?: string;
   size: "large" | "small";
-  theme?: 'default' | 'link' | 'tertiary' | 'warning' | 'delete' | 'disabled';
+  theme?: 'default' | 'link' | 'warning' | 'delete' | 'disabled';
 }
 
 export const Button = ({ onClick, label, size, theme }: ButtonProps) => {

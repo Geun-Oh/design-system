@@ -2,12 +2,17 @@
 import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
-import angleDownSrc from '../images/angle-down-soild.svg';
+import ArrowDown from '../images/angle.svg';
 
-export const Accordion = ({ innerText }) => {
+type AccordionProps = {
+    innerText: string;
+}
+
+export const Accordion = ({ innerText }: AccordionProps) => {
     return (
         <div>
-            <img src={angleDownSrc} alt="angeDown" />
+            {innerText}
+            <ArrowDown />
         </div>
     )
 }
