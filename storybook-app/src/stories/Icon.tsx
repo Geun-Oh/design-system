@@ -1,31 +1,28 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { jsx, css } from '@emotion/react';
-import * as icons from '../icons';
-
-type IconType = keyof typeof icons;
-export const iconTypes: IconType[] = Object.keys(icons) as any[];
+import { BaseStyles } from "../themes";
 
 type IconProps = {
-    icon: IconType;
-    color?: string;
-    size?: string | number;
-    className?: string;
+    type?: 'angleDown';
 }
 
-/** 아이콘을 보여주고 싶을 땐 `Icon` 컴포넌트를 사용하세요.
- *
- * 이 컴포넌트는 svg 형태로 아이콘을 보여주며, props 또는 스타일을 사용하여 아이콘의 색상과 크기를 정의 할 수 있습니다.
- *
- * 스타일로 모양새를 설정 할 때에는 `color`로 색상을 설정하고 `width`로 크기를 설정하세요.
- */
-
-export const Icon = ({ icon, color, size, className }: IconProps) => {
-    const SVGIcon = icons[icon];
-    return (
-        <SVGIcon
-            css={{ fill: color || "currentColor", width: size, height: "auto" }}
-            className={className}
-        />
+export const Icon = ({ type }: IconProps) => {
+    if(type === 'angleDown') return (
+        <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_8_3734)">
+            <path d="M4.99996 9C4.78673 9 4.5734 8.92676 4.4109 8.78027L0.244232 5.03027C-0.0812887 4.7373 -0.0812887 4.2627 0.244232 3.96973C0.569753 3.67676 1.0971 3.67676 1.42262 3.96973L4.99996 7.19062L8.57809 3.97031C8.90361 3.67734 9.43095 3.67734 9.75647 3.97031C10.082 4.26328 10.082 4.73789 9.75647 5.03086L5.58981 8.78086C5.42704 8.92734 5.2135 9 4.99996 9Z" fill="black"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_8_3734">
+                <rect width="10" height="12" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>
     )
+    return null;
 }
+
+Icon.defaultProps = {
+    type: 'angleDown'
+};

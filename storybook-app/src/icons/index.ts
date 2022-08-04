@@ -1,1 +1,0 @@
-export { ReactComponent as angleDown } from './angle.svg';
