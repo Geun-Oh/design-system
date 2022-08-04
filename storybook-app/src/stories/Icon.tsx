@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
 type IconProps = {
-    type?: 'angleDown';
+    type: 'angleDown';
 }
 
 export const Icon = ({ type }: IconProps) => {
