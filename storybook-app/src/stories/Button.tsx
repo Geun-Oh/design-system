@@ -2,6 +2,7 @@
 import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
+import { Icon } from './Icon';
 
 type ButtonProps = {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
@@ -11,6 +12,15 @@ type ButtonProps = {
 }
 
 export const Button = ({ onClick, label, size, theme }: ButtonProps) => {
+  return (
+    <button css={[style({ size }), themes[theme!]]} onClick={onClick}>
+      {label}
+      <Icon type="angleDown" />
+    </button>
+  )
+};
+
+export const ButtonWithIcon = ({ onClick, label, size, theme }: ButtonProps) => {
   return (
     <button css={[style({ size }), themes[theme!]]} onClick={onClick}>
       {label}
