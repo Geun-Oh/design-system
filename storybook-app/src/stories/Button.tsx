@@ -9,28 +9,28 @@ type ButtonProps = {
   label?: string;
   size: "large" | "small";
   theme?: 'default' | 'link' | 'warning' | 'delete' | 'disabled';
+  iconType?: 'angleDown' | "home" | "file" | "chat" | "chart" | "checkout" | "none";
 }
 
-export const Button = ({ onClick, label, size, theme }: ButtonProps) => {
+export const Button = ({ onClick, label, size, theme, iconType }: ButtonProps) => {
   return (
     <button css={[style({ size }), themes[theme!]]} onClick={onClick}>
       {label}
-      <Icon type="angleDown" />
-    </button>
-  )
-};
-
-export const ButtonWithIcon = ({ onClick, label, size, theme }: ButtonProps) => {
-  return (
-    <button css={[style({ size }), themes[theme!]]} onClick={onClick}>
-      {label}
+      <div css={iconStyle(iconType)} >
+        <Icon type={iconType} />
+      </div>
     </button>
   )
 };
 
 Button.defaultProps = {
-  theme: 'primary'
+  theme: 'primary',
+  iconType: "none"
 };
+
+const iconStyle = (iconType) => css`
+  ${iconType === "none" ? null : "padding-left: 16px" };
+`
 
 const style = ({ size }: ButtonProps) => css`
   box-shadow: ${BaseStyles.Shadow.BottomDefault};
@@ -46,6 +46,10 @@ const style = ({ size }: ButtonProps) => css`
   padding: 0.5rem 2rem;
   border-radius: 1rem;
   line-height: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   &:focus {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   }
