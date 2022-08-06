@@ -6,10 +6,11 @@ import { BaseStyles } from "../themes";
 type BadgeProps = {
     innerText: string;
     state: "Access" | "Warning" | "Error" | "New" | "Wait";
+    width: string;
     size: "Large" | "Medium" | "Small";
 }
 
-export const Badge = ({ innerText, state, size }: BadgeProps) => {
+export const Badge = ({ innerText, state, width, size }: BadgeProps) => {
     const style = () => {
         if(size === "Large") {
             return css`
@@ -17,6 +18,7 @@ export const Badge = ({ innerText, state, size }: BadgeProps) => {
             transition-duration: 0.5s;
             outline: none;
             border: none;
+            width: ${width};
             box-sizing: border-box;
             background: white;
             padding: 12px 16px;
@@ -56,3 +58,9 @@ export const Badge = ({ innerText, state, size }: BadgeProps) => {
     )
 }
 
+Badge.defaultProps = {
+    innerText: "Badge InnerText",
+    state: "Access",
+    width: "400px",
+    size: "Large",
+}
