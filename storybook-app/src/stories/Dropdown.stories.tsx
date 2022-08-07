@@ -10,4 +10,4 @@ export default {
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { selected: "Select option...", options: [] };
+Default.args = { options: ["option1", "option2", "option3"], width: 300 };
