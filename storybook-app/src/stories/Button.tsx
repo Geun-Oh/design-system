@@ -4,12 +4,16 @@ import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Icon } from './Icon';
 
-type ButtonProps = {
+type SizeType = "large" | "small";
+type ThemeType = 'default' | 'link' | 'warning' | 'delete' | 'disabled';
+type IconType = 'angleDown' | "home" | "file" | "chat" | "chart" | "checkout" | "none";
+
+interface ButtonProps {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  label?: string;
-  size: "large" | "small";
-  theme?: 'default' | 'link' | 'warning' | 'delete' | 'disabled';
-  iconType?: 'angleDown' | "home" | "file" | "chat" | "chart" | "checkout" | "none";
+  label?: string | boolean;
+  size: SizeType;
+  theme?: ThemeType;
+  iconType?: IconType;
 }
 
 export const Button = ({ onClick, label, size, theme, iconType }: ButtonProps) => {
