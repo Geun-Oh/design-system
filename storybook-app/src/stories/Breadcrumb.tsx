@@ -3,7 +3,7 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
-type BreadcrumbProps = {
+interface BreadcrumbProps {
     params: string[];
 }
 

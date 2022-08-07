@@ -19,4 +19,4 @@ export const Loading = Template.bind({});
 Loading.args = { innerText: "Accordion InnerText", width: "300px", loading: true };
 
 export const ExtraActionWithLoading = Template.bind({});
-ExtraActionWithLoading.args = { innerText: "Accordion InnerText", extraAction: "Extra Action", loading: true };
+ExtraActionWithLoading.args = { innerText: "Accordion InnerText", extraAction: "Extra Action", src: "https://github.com/Geun-Oh", loading: true };

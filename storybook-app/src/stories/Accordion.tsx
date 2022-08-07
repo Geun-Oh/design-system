@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Icon } from "./Icon";
 
-type AccordionProps = {
+interface AccordionProps {
     innerText: string;
     width: string;
     extraAction?: string;

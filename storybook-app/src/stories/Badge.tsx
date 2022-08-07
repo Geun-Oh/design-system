@@ -3,11 +3,14 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
-type BadgeProps = {
+type StateType = "Access" | "Warning" | "Error" | "New" | "Wait";
+type SizeType = "Large" | "Medium" | "Small";
+
+interface BadgeProps {
     innerText: string;
-    state: "Access" | "Warning" | "Error" | "New" | "Wait";
+    state: StateType;
     width: string;
-    size: "Large" | "Medium" | "Small";
+    size: SizeType;
 }
 
 export const Badge = ({ innerText, state, width, size }: BadgeProps) => {
