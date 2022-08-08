@@ -10,28 +10,28 @@ export default {
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", width: 400 , image: false };
+Default.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", image: false };
 
 export const WithIcon = Template.bind({});
-WithIcon.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", icon: "chat", width: 400 , image: false };
+WithIcon.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", icon: "chat", image: false };
 
 export const WithHead = Template.bind({});
-WithHead.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", width: 400 , image: false };
+WithHead.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", image: false };
 
 export const WithHeadIcon = Template.bind({});
-WithHeadIcon.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", width: 400, icon: "chat" , image: false };
+WithHeadIcon.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", icon: "chat" , image: false };
 
 export const WithHeadButton = Template.bind({});
-WithHeadButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, width: 400 , image: false };
+WithHeadButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, image: false };
 
 export const WithHeadIconButton = Template.bind({});
-WithHeadIconButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, width: 400, icon: "chat" , image: false };
+WithHeadIconButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, icon: "chat" , image: false };
 
 export const WithImg = Template.bind({});
-WithImg.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", width: 400, image: true };
+WithImg.args = { title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", image: true };
 
 export const WithHeadIconImg = Template.bind({});
-WithHeadIconImg.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", width: 400, icon: "chat" , image: true };
+WithHeadIconImg.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", icon: "chat" , image: true };
 
 export const WithHeadIconImgButton = Template.bind({});
-WithHeadIconImgButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, width: 400, icon: "chat" , image: true };
+WithHeadIconImgButton.args = { head: "Beta", title: "Card Example", detail: "Example of a card's description. Stick to one or two senteces.", confirmButton: true, icon: "chat" , image: true };

@@ -12,6 +12,9 @@ const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 export const angleDown = Template.bind({});
 angleDown.args = { type: "angleDown" };
 
+export const xmark = Template.bind({});
+xmark.args = { type: "xmark" };
+
 export const home = Template.bind({});
 home.args = { type: "home" };
 

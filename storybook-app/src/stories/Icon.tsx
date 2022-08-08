@@ -3,7 +3,7 @@ import React from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
-type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none";
+type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "xmark" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none";
 
 export interface IconProps {
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
@@ -35,6 +35,12 @@ export const Icon = ({ onClick, type, scale }: IconProps) => {
             return (
                 <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
                     <path d="M0.375259 5.6246C0.375259 5.41137 0.448502 5.19803 0.594986 5.03553L4.34499 0.868866C4.63795 0.543345 5.11256 0.543345 5.40553 0.868866C5.6985 1.19439 5.6985 1.72173 5.40553 2.04725L2.18463 5.6246L5.40495 9.20272C5.69792 9.52824 5.69792 10.0556 5.40495 10.3811C5.11198 10.7066 4.63737 10.7066 4.3444 10.3811L0.5944 6.21444C0.447916 6.05168 0.375259 5.83814 0.375259 5.6246Z" fill="black"/>
+                </svg>
+            )
+        case "xmark":
+            return(
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6466 9.95266C12.1153 10.4214 12.1153 11.1807 11.6466 11.6494C11.4141 11.8838 11.1066 12 10.7992 12C10.4917 12 10.185 11.8828 9.95097 11.6485L5.99953 7.69909L2.04846 11.6475C1.81411 11.8838 1.50701 12 1.19991 12C0.892805 12 0.586079 11.8838 0.351535 11.6475C-0.117178 11.1788 -0.117178 10.4195 0.351535 9.95078L4.30373 5.99859L0.351535 2.04828C-0.117178 1.57956 -0.117178 0.820248 0.351535 0.351535C0.820248 -0.117178 1.57956 -0.117178 2.04828 0.351535L5.99953 4.3056L9.95172 0.35341C10.4204 -0.115303 11.1798 -0.115303 11.6485 0.35341C12.1172 0.822123 12.1172 1.58144 11.6485 2.05015L7.69627 6.00234L11.6466 9.95266Z" fill="black"/>
                 </svg>
             )
         case "home":

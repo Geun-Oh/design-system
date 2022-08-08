@@ -7,14 +7,16 @@ import { Icon } from "./Icon";
 interface DropdownProps {
     options: string[];
     width: number;
+    disabled: boolean;
 }
 
-export const Dropdown = ({ options, width }: DropdownProps) => {
+export const Dropdown = ({ options, width, disabled }: DropdownProps) => {
     const [ selected, setSelected ] = React.useState("");
     const [ toggled, setToggled ] = React.useState(false);
 
-    const onClick = () => setToggled(prev => !prev)
-    const angle = toggled ? "angleLeft" : "angleDown";
+    const onClick = () => disabled ? null : setToggled(prev => !prev);
+    const angle = disabled ? "xmark" : toggled ? "angleLeft" : "angleDown";
+    const placeHolder = () => disabled ? <p style={{ color: BaseStyles.Color.Black1 }}>Disabled</p> : selected === "" ? <p style={{ color: BaseStyles.Color.Black1 }}>Select option...</p> : selected;
 
     const optionStyle = css`
         box-shadow: ${BaseStyles.Shadow.BottomDefault};
@@ -35,7 +37,7 @@ export const Dropdown = ({ options, width }: DropdownProps) => {
     `
 
     const style = css`
-        box-shadow: ${BaseStyles.Shadow.BottomDefault};
+        box-shadow: ${BaseStyles.Shadow.BottomSmall};
         transition-duration: 0.5s;
         border: none;
         height: 1rem;
@@ -50,12 +52,15 @@ export const Dropdown = ({ options, width }: DropdownProps) => {
         Icon {
             transform-origin: center;
         }
+        &:hover {
+            border: 1px solid ${BaseStyles.Color.Black1};
+        }
     `
 
     return (
         <div className='wrapper'>
-            <div css={style} onClick={onClick} >
-                {selected === "" ? <p style={{ color: BaseStyles.Color.Black1 }}>Select option...</p> : selected}
+            <div css={style} onClick={onClick}>
+                {placeHolder()}
                 <Icon type={angle} scale={1.5} />
             </div>
             <div css={optionStyle}>
@@ -72,5 +77,6 @@ export const Dropdown = ({ options, width }: DropdownProps) => {
 
 Dropdown.defaultProps = {
     options: ["option1", "option2", "option3"],
+    disabled: false,
     width: 300,
 }

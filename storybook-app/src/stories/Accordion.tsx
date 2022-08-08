@@ -24,7 +24,7 @@ export const Accordion = ({ innerText, width, extraAction, src, loading }: Accor
 
 Accordion.defaultProps = {
     innerText: "Accordion InnerText",
-    width: "400px",
+    width: "300px",
     loading: false,
 };
 
