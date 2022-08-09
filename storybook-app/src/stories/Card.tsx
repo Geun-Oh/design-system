@@ -38,7 +38,7 @@ export const Card = ({ head, icon, title, width, detail, confirmButton, image, i
 
 Card.defaultProps = {
     title: "Card Example",
-    width: 400,
+    width: 300,
     detail: "Example of a card's description. Stick to one or twe sentences.",
     confirmButton: false,
     imgUrl: image1,

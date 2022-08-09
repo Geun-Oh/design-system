@@ -12,6 +12,9 @@ const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 export const angleDown = Template.bind({});
 angleDown.args = { type: "angleDown" };
 
+export const xmark = Template.bind({});
+xmark.args = { type: "xmark" };
+
 export const home = Template.bind({});
 home.args = { type: "home" };
 
@@ -26,3 +29,21 @@ chat.args = { type: "chat" };
 
 export const checkout = Template.bind({});
 checkout.args = { type: "checkout" };
+
+export const hamburger = Template.bind({});
+hamburger.args = { type: "hamburger" };
+
+export const kebab = Template.bind({});
+kebab.args = { type: "kebab" };
+
+export const meetball = Template.bind({});
+meetball.args = { type: "meetball" };
+
+export const bento = Template.bind({});
+bento.args = { type: "bento" };
+
+export const donorRight = Template.bind({});
+donorRight.args = { type: "donorRight" };
+
+export const donorLeft = Template.bind({});
+donorLeft.args = { type: "donorLeft" };

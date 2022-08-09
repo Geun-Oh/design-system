@@ -64,6 +64,6 @@ export const Badge = ({ innerText, state, width, size }: BadgeProps) => {
 Badge.defaultProps = {
     innerText: "Badge InnerText",
     state: "Access",
-    width: "400px",
+    width: "300px",
     size: "Large",
 }
