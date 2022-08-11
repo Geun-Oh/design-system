@@ -80,3 +80,5 @@ input 컴포넌트에 대한 구현을 모두 마쳤다.
 Multi Selecte Input은 Dropdown 컴포넌트에 스토리로 추가하여 구현할 예정이고,
 Number Only Input은 Phone Number Input에 정규표현식만 수정하여 구현할 예정이다.
 일단 Number Only Input같은 경우 카드 번호를 입력받을 일이 당장 있는 것이 아니기에 다음에 구현할 예정이다.
+
+우여곡절 끝에 Multi Select Input까지 제작을 완료했다. 디자인하면서 오류가 적어지고 시간이 빨라지는 걸 보면 이제 css나 flex에 대한 기본적인 요소는 충분히 익히고 숙달한 것 같다는 생각이 든다.

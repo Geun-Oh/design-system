@@ -10,7 +10,10 @@ export default {
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { options: ["option1", "option2", "option3"], width: "300px" };
+Default.args = { options: ["option1", "option2", "option3"], disabled: false, width: "300px", multiSelect: false };
 
 export const Disabled = Template.bind({});
-Disabled.args = { options: ["option1", "option2", "option3"], disabled: true, width: "300px" };
+Disabled.args = { options: ["option1", "option2", "option3"], disabled: true, width: "300px", multiSelect: false };
+
+export const MultiSelector = Template.bind({});
+MultiSelector.args = { options: ["React.js", "Typescript", "Storybook", "Node.js", "Jest", "Jira"], disabled: false, width: "300px", multiSelect: true };

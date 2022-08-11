@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Icon, IconProps } from "./Icon";
 
-type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "multiSelectInput" | "numberOnlyInput" | "inputWithSteper" | "textAreaInput";
+type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";
 
 interface InputProps {
     type: InputType;
@@ -49,7 +49,7 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
                     <input css={textInputStyle()} type="date" name={name}></input>
                 </div>
             )
-        case "phoneNumber": // 전화번호 형식에 맞지 않을 때 경고하는 로직 제작
+        case "phoneNumber":
             return (
                 <div css={style(width)}>
                     <input css={textInputStyle()} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
@@ -105,7 +105,7 @@ const style = (width) => css`
     width: ${width};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
-    border: none;
+    border: 0.3px solid ${BaseStyles.Color.Black0};
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -113,6 +113,9 @@ const style = (width) => css`
     padding: 1rem;
     border-radius: 6px;
     background: white;
+    &:hover {
+        border: 1px solid ${BaseStyles.Color.Beige2};
+    }
 `
 
 const textInputStyle = () => css`
@@ -147,12 +150,15 @@ const textAreaStyle = (width) => css`
 width: ${width};
 box-shadow: ${BaseStyles.Shadow.BottomDefault};
 transition-duration: 0.5s;
-border: none;
+border: 0.3px solid     border: 0.3px solid ${BaseStyles.Color.Black0};;
 display: flex;
 flex-direction: row;
 padding: 1rem;
 border-radius: 6px;
 background: white;
+&:hover {
+    border: 1px solid ${BaseStyles.Color.Beige2};
+}
 `
 
 const textAreaInputStyle = (height) => css`
