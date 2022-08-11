@@ -38,6 +38,9 @@ export const Dropdown = ({ options, width, disabled, multiSelect }: DropdownProp
         transition-duration: 0.5s;
         border: none;
         width: ${width};
+        max-height: 100px;
+        overflow-x: hidden;
+        overflow-y: scroll;
         padding: 0.5rem 1.5rem;
         border-radius: 1rem;
         display: flex;
