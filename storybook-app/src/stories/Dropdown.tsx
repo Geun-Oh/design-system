@@ -6,7 +6,7 @@ import { Icon } from "./Icon";
 
 interface DropdownProps {
     options: string[];
-    width: number;
+    width: string;
     disabled: boolean;
 }
 
@@ -22,7 +22,7 @@ export const Dropdown = ({ options, width, disabled }: DropdownProps) => {
         box-shadow: ${BaseStyles.Shadow.BottomDefault};
         transition-duration: 0.5s;
         border: none;
-        width: ${width}px;
+        width: ${width};
         padding: 0.5rem 1.5rem;
         border-radius: 1rem;
         display: flex;
@@ -32,7 +32,7 @@ export const Dropdown = ({ options, width, disabled }: DropdownProps) => {
         transform: scaleY(${toggled ? 1 : 0});
         transform-origin: top center;
         p {
-            width: ${width}px;
+            width: ${width};
         }
     `
 
@@ -41,7 +41,7 @@ export const Dropdown = ({ options, width, disabled }: DropdownProps) => {
         transition-duration: 0.5s;
         border: none;
         height: 1rem;
-        width: ${width}px;
+        width: ${width};
         padding: 1rem 1.5rem;
         margin-bottom: 0.5rem;
         border-radius: 1rem;
@@ -78,5 +78,5 @@ export const Dropdown = ({ options, width, disabled }: DropdownProps) => {
 Dropdown.defaultProps = {
     options: ["option1", "option2", "option3"],
     disabled: false,
-    width: 300,
+    width: "300px",
 }

@@ -8,7 +8,7 @@ type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchFiel
 
 interface InputProps {
     type: InputType;
-    width: number;
+    width: string;
     icon?: IconProps["type"];
     name?: string;
 }
@@ -17,6 +17,7 @@ export const Input = ({ type, width, icon, name }: InputProps) => {
 
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState("");
+    const [stepNumber, setStepNumber] = React.useState(0);
 
     const handlePress = (e) => {
         const regex = /^[0-9\b -]{0,13}$/;
@@ -50,7 +51,7 @@ export const Input = ({ type, width, icon, name }: InputProps) => {
         case "phoneNumber": // 전화번호 형식에 맞지 않을 때 경고하는 로직 제작
             return (
                 <div css={style(width)}>
-                    <input css={textInputStyle()} type="text" onChange={handlePress} value={inputValue}  placeholder="010-1234-5678" maxLength={13}/>
+                    <input css={textInputStyle()} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
                 </div>
             )
         case "password":
@@ -62,13 +63,38 @@ export const Input = ({ type, width, icon, name }: InputProps) => {
                     </button>
                 </div>
             )
+        case "searchField":
+            return (
+                <div css={style(width)}>
+                    <Icon type="magnifyingGlass" />
+                    <input css={textInputStyle()} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name}></input>
+                </div>
+            )
+        case "inputWithSteper":
+            return (
+                <div css={style(width = "80px")}>
+                    <div css={textInputStyle()}>{stepNumber}</div>
+                    <div className='steperwrapper' css={steperWrapperStyle()}>
+                        <button onClick={() => setStepNumber(prev => prev + 1)}>
+                            <Icon type="angleUp" />
+                        </button>
+                        <button onClick={() => setStepNumber(prev => prev - 1)}>
+                            <Icon type="angleDown" />
+                        </button>
+                    </div>
+                </div>
+            )
         default:
             return null;
     }
 }
 
+Input.defaultProps = {
+    width: "300px",
+}
+
 const style = (width) => css`
-    width: ${width}px;
+    width: ${width};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: none;
@@ -88,4 +114,19 @@ const textInputStyle = () => css`
     border: none;
     outline: none;
     text-decoration: none;
+`
+
+const steperWrapperStyle = () => css`
+    width: 20px;
+    height: 32.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    button {
+        box-shadow: ${BaseStyles.Shadow.BottomDefault};
+        outline: none;
+        background: none;
+        border: none;
+    }
 `
