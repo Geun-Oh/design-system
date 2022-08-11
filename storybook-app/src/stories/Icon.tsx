@@ -3,16 +3,18 @@ import React from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
-type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "xmark" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none" | "hamburger" | "kebab" | "meetball" | "bento" | "donorRight" | "donorLeft";
+type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "xmark" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none" | "hamburger" | "kebab" | "meetball" | "bento" | "donorRight" | "donorLeft" | "calendar" | "flag" | "triangleDown" | "eye" | "magnifyingGlass";
 
 export interface IconProps {
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     type: TypeProps;
     scale?: number;
     fill: "#000000" | "#FFCD80";
+    onMouseDown?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseUp?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Icon = ({ onClick, type, scale, fill }: IconProps) => {
+export const Icon = ({ onClick, type, scale, fill, onMouseDown, onMouseUp }: IconProps) => {
     switch (type) {
         case "angleDown":
             return (
@@ -124,6 +126,36 @@ export const Icon = ({ onClick, type, scale, fill }: IconProps) => {
             return (
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
                     <path d="M0 5H9V7H0V5ZM0 0H12V2H0V0ZM0 12H5.42625V10H0V12Z" fill={fill} />
+                </svg>
+            )
+        case "calendar":
+            return (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
+                    <path d="M5.71429 1V2H10.2857V1C10.2857 0.447812 10.7964 0 11.4286 0C12.0607 0 12.5714 0.447812 12.5714 1V2H14.2857C15.2321 2 16 2.67156 16 3.5V5H0V3.5C0 2.67156 0.7675 2 1.71429 2H3.42857V1C3.42857 0.447812 3.93929 0 4.57143 0C5.20357 0 5.71429 0.447812 5.71429 1ZM0 6H16V14.5C16 15.3281 15.2321 16 14.2857 16H1.71429C0.7675 16 0 15.3281 0 14.5V6ZM2.85714 8C2.54143 8 2.28571 8.225 2.28571 8.5V11.5C2.28571 11.775 2.54143 12 2.85714 12H6.28571C6.6 12 6.85714 11.775 6.85714 11.5V8.5C6.85714 8.225 6.6 8 6.28571 8H2.85714Z" fill="#767676" />
+                </svg>
+            )
+        case "flag":
+            return (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
+                    <path d="M2 15.5C2 15.775 1.77344 16 1.5 16H0.5C0.226562 16 0 15.775 0 15.5V1C0 0.445312 0.445312 0 1 0C1.55469 0 2 0.445312 2 1V15.5ZM14.8844 0C14.6855 0 14.4778 0.0421875 14.28 0.132281C12.8522 0.784156 11.7937 1.00541 10.9113 1.00541C9.0375 1.00541 7.94844 0.00978125 5.78937 0.00946875C5.02812 0.00954688 4.1125 0.152094 3 0.492188V11.4453C4 11.1333 4.87094 11.0047 5.65156 11.0047C7.9525 11.0047 9.55469 11.9978 11.8578 11.9978C12.855 11.9978 13.9834 11.8112 15.3297 11.2762C15.7531 11.1219 16 10.7625 16 10.3781V0.960312C16 0.346875 15.4781 0 14.8844 0Z" fill="#767676" />
+                </svg>
+            )
+        case "triangleDown":
+            return (
+                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
+                    <path d="M7.78037 1.36785L4.59625 4.57452C4.41838 4.73235 4.21295 4.81001 4.00752 4.81001C3.80209 4.81001 3.59717 4.73172 3.44059 4.57514L0.256467 1.36847C0.00480378 1.13987 -0.0638491 0.794152 0.0602592 0.496032C0.184367 0.197912 0.476926 0 0.80085 0H7.19165C7.51582 0 7.80843 0.194931 7.93269 0.494779C8.05695 0.794628 8.01085 1.13987 7.78037 1.36785Z" fill="#767676" />
+                </svg>
+            )
+        case "eye":
+            return (
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick} onKeyDown={() => onMouseDown} onKeyUp={() => onMouseUp}>
+                    <path d="M7.76701 4.34432C7.84479 4.33598 7.92257 4.33321 8.00035 4.33321C9.47264 4.33321 10.6671 5.5027 10.6671 6.99999C10.6671 8.47227 9.47264 9.66677 8.00035 9.66677C6.50306 9.66677 5.33357 8.47227 5.33357 6.99999C5.33357 6.92221 5.33635 6.84443 5.34468 6.76664C5.60302 6.89165 5.90304 6.99999 6.22249 6.99999C7.20309 6.99999 8.00035 6.20273 8.00035 5.22213C8.00035 4.90267 7.89201 4.60266 7.76701 4.34432ZM13.3506 3.01648C14.6506 4.22209 15.5201 5.6416 15.9312 6.65831C16.0229 6.87776 16.0229 7.12221 15.9312 7.34167C15.5201 8.33338 14.6506 9.75288 13.3506 10.9835C12.0422 12.2002 10.2449 13.2225 8.00035 13.2225C5.75581 13.2225 3.95851 12.2002 2.65067 10.9835C1.35062 9.75288 0.481691 8.33338 0.0683675 7.34167C-0.0227892 7.12221 -0.0227892 6.87776 0.0683675 6.65831C0.481691 5.6416 1.35062 4.22209 2.65067 3.01648C3.95851 1.80087 5.75581 0.777496 8.00035 0.777496C10.2449 0.777496 12.0422 1.80087 13.3506 3.01648ZM8.00035 2.99981C5.79192 2.99981 4.00018 4.79156 4.00018 6.99999C4.00018 9.20842 5.79192 11.0002 8.00035 11.0002C10.2088 11.0002 12.0005 9.20842 12.0005 6.99999C12.0005 4.79156 10.2088 2.99981 8.00035 2.99981Z" fill="#767676" />
+                </svg>
+            )
+        case "magnifyingGlass":
+            return (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" css={scaleControl(scale)} onClick={() => onClick}>
+                    <path d="M15.6344 13.8641L11.8938 10.1239C12.7444 8.86123 13.1641 7.28359 12.9394 5.60252C12.5563 2.74313 10.2125 0.416195 7.34999 0.0538272C3.09404 -0.484647 -0.484725 3.09372 0.0538391 7.3492C0.41634 10.2126 2.74385 12.558 5.60386 12.9392C7.28512 13.1639 8.86325 12.7444 10.1258 11.8937L13.8664 15.6339C14.3545 16.122 15.1461 16.122 15.6342 15.6339C16.1219 15.1452 16.1219 14.3516 15.6344 13.8641ZM2.47185 6.4993C2.47185 4.29391 4.26623 2.49972 6.47186 2.49972C8.6775 2.49972 10.4719 4.29391 10.4719 6.4993C10.4719 8.70469 8.6775 10.4989 6.47186 10.4989C4.26623 10.4989 2.47185 8.70531 2.47185 6.4993Z" fill="black" />
                 </svg>
             )
         case "none":
