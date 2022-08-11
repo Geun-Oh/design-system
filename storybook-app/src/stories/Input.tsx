@@ -11,9 +11,10 @@ interface InputProps {
     width: string;
     icon?: IconProps["type"];
     name?: string;
+    height?: string;
 }
 
-export const Input = ({ type, width, icon, name }: InputProps) => {
+export const Input = ({ type, width, icon, name, height }: InputProps) => {
 
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState("");
@@ -84,6 +85,12 @@ export const Input = ({ type, width, icon, name }: InputProps) => {
                     </div>
                 </div>
             )
+        case "textAreaInput":
+            return (
+                <div css={textAreaStyle(width)}>
+                    <textarea css={textAreaInputStyle(height)} placeholder="Input Text" name={name}></textarea>
+                </div>
+            )
         default:
             return null;
     }
@@ -91,6 +98,7 @@ export const Input = ({ type, width, icon, name }: InputProps) => {
 
 Input.defaultProps = {
     width: "300px",
+    height: "300px",
 }
 
 const style = (width) => css`
@@ -117,6 +125,7 @@ const textInputStyle = () => css`
 `
 
 const steperWrapperStyle = () => css`
+    box-shadow: ${BaseStyles.Shadow.BottomDefault};
     width: 20px;
     height: 32.5px;
     display: flex;
@@ -124,9 +133,34 @@ const steperWrapperStyle = () => css`
     justify-content: space-evenly;
     align-items: center;
     button {
-        box-shadow: ${BaseStyles.Shadow.BottomDefault};
         outline: none;
         background: none;
         border: none;
+        transition-duration: 0.5s;
+        &:hover {
+            background: ${BaseStyles.Color.Beige0};
+        }
     }
+`
+
+const textAreaStyle = (width) => css`
+width: ${width};
+box-shadow: ${BaseStyles.Shadow.BottomDefault};
+transition-duration: 0.5s;
+border: none;
+display: flex;
+flex-direction: row;
+padding: 1rem;
+border-radius: 6px;
+background: white;
+`
+
+const textAreaInputStyle = (height) => css`
+width: 100%;
+height: ${height};
+font-family: ${BaseStyles.Font.FiraCode};
+font-size: 1rem;
+border: none;
+outline: none;
+text-decoration: none;
 `

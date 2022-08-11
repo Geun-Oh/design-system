@@ -72,3 +72,11 @@ input 컴포넌트에 대한 스토리들을 figma에 제작하고 이를 코드
 
 전화번호 입력을 정규표현식으로 제어하는 방법과
 password를 보이고 안 보이도록 하는 mouseDown, mouseUp 이벤트를 기억해두자.
+
+### 22.08.11
+
+input 컴포넌트에 대한 구현을 모두 마쳤다.
+
+Multi Selecte Input은 Dropdown 컴포넌트에 스토리로 추가하여 구현할 예정이고,
+Number Only Input은 Phone Number Input에 정규표현식만 수정하여 구현할 예정이다.
+일단 Number Only Input같은 경우 카드 번호를 입력받을 일이 당장 있는 것이 아니기에 다음에 구현할 예정이다.
