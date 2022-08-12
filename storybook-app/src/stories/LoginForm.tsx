@@ -13,7 +13,6 @@ interface LoginFormProps {
 export const LoginForm = ({ width }: LoginFormProps) => {
     return (
         <div className='formWrapper' css={style(width)}>
-            <form name="loginForm">
             <div className='idInput' css={idInputStyle()}>
                 <div style={{ marginBottom: "10px", fontFamily: BaseStyles.Font.FiraCode, fontSize: BaseStyles.Text.Heading3, fontWeight: BaseStyles.Text.Border0 }}>
                     ID<span style={{ color: BaseStyles.Color.Orange2 }}>*</span>
@@ -78,7 +77,6 @@ export const LoginForm = ({ width }: LoginFormProps) => {
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <Button label="Submit" size="large" theme='delete' />
             </div>
-            </form>
         </div>
     )
 }
