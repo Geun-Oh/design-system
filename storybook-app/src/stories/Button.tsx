@@ -2,23 +2,25 @@
 import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles } from "../themes";
-import { Icon } from './Icon';
+import { Icon, IconProps } from './Icon';
 
-type SizeType = "large" | "small";
-type ThemeType = 'default' | 'link' | 'warning' | 'delete' | 'disabled';
-type IconType = 'angleDown' | "home" | "file" | "chat" | "chart" | "checkout" | "none";
+type ThemeType = 'none' | 'default' | 'link' | 'warning' | 'delete' | 'disabled' | "submit" | "formSubmit";
 
 interface ButtonProps {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  label?: string | boolean;
-  size: SizeType;
+  label?: string;
+  width?: string;
+  height?: string;
   theme?: ThemeType;
-  iconType?: IconType;
+  iconType?: IconProps["type"];
+  backgroundColor?: string;
+  color?: string;
+  hoverColor?: string;
 }
 
-export const Button = ({ onClick, label, size, theme, iconType }: ButtonProps) => {
+export const Button = ({ onClick, label, width, height, theme, iconType, backgroundColor, color, hoverColor }: ButtonProps) => {
   return (
-    <button css={[style({ size }), themes[theme!]]} onClick={onClick}>
+    <button css={[style({ width, height, backgroundColor, color, hoverColor }), themes[theme!]]} onClick={onClick}>
       {label}
       <div css={iconStyle(iconType)} >
         <Icon type={iconType} />
@@ -28,38 +30,43 @@ export const Button = ({ onClick, label, size, theme, iconType }: ButtonProps) =
 };
 
 Button.defaultProps = {
-  theme: 'primary',
-  iconType: "none"
+  iconType: "none",
+  backgroundColor: "#FFFFFF",
 };
 
 const iconStyle = (iconType) => css`
   ${iconType === "none" ? null : "padding-left: 16px" };
 `
 
-const style = ({ size }: ButtonProps) => css`
+const style = ({ width, height, backgroundColor, color, hoverColor }: ButtonProps) => css`
   box-shadow: ${BaseStyles.Shadow.BottomDefault};
   transition-duration: 0.5s;
   outline: none;
   border: none;
   box-sizing: border-box;
-  background: white;
-  height: ${size === "small" ? "2rem" : "3rem"};
+  background: ${backgroundColor};
+  color: ${color};
+  width: ${width};
+  height: ${height};
   font-size: ${BaseStyles.Text.Heading4};
-  font-family: "Fira Code";
+  font-family: ${BaseStyles.Font.FiraCode};
   font-weight: ${BaseStyles.Text.Border4};
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  line-height: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  line-height: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  &:focus {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  &:hover {
+    color: ${hoverColor};
   }
 `;
 
 const themes = {
+  none: css`
+  `
+  ,
   default: css`
     color: ${BaseStyles.Color.Black4};
     &:hover {
@@ -106,6 +113,22 @@ const themes = {
   color: black;
   &:hover {
     background: ${BaseStyles.Color.Black3};
+    color: white;
+  }
+  `,
+  submit: css`
+  background: ${BaseStyles.Color.Beige2};
+  color: black;
+  &:hover {
+    background: ${BaseStyles.Color.Beige3};
+    color: white;
+  }
+  `,
+  formSubmit: css`
+  background: ${BaseStyles.Color.Orange2};
+  color: black;
+  &:hover {
+    background: ${BaseStyles.Color.Orange3};
     color: white;
   }
   `

@@ -13,12 +13,10 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = { label: "Default", theme: "default" };
 
-// 템플릿에 새로운 버튼을 또 추가할 수 있다.
 export const Link = Template.bind({});
-Link.args = { label: 'Link', theme: "link" };
+Link.args = { label: "Link", theme: "link" };
 
 export const Warning = Template.bind({});
 Warning.args = { label: "Warning", theme: "warning" };
@@ -28,3 +26,12 @@ Delete.args = { label: "Delete", theme: "delete" };
 
 export const Disabled = Template.bind({});
 Disabled.args = { label: "Disabled", theme: "disabled" };
+
+export const WithIcon = Template.bind({});
+WithIcon.args = { label: "WithIcon", theme: "default", iconType: "bento" };
+
+export const Submit = Template.bind({});
+Submit.args = { label: "Submit", theme: "submit" };
+
+export const FormSubmit = Template.bind({});
+FormSubmit.args = { label: "Submit your form", theme: "formSubmit" };
