@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { LoginForm } from "./LoginForm";
 
 export default {
-    title: 'Components/LoginForm',
+    title: 'Pages/LoginForm',
     component: LoginForm,
 } as ComponentMeta<typeof LoginForm>;
 
