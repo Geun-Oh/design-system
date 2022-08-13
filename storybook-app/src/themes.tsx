@@ -52,3 +52,18 @@ export const BaseStyles = {
         TopLarge: "0px -2.7px 9px rgba(0, 0, 0, 0.13), 0px -9.4px 24px rgba(0, 0, 0, 0.09), 0px -21.8px 43px rgba(0, 0, 0, 0.08)",
     }
 }
+
+export const Themes = {
+    LightMode: {
+        BackgroundColor: "#FFFFFF",
+        SubBackgroundColor: "#DDDDDD",
+        Color: "#616161",
+        SubColor: "#FFCD80",
+    },
+    DarkMode: {
+        BackgroundColor: "#616161",
+        SubBackgroundColor: "#DDDDDD",
+        Color: "#FFFFFF",
+        SubColor: "#FFCD80",
+    },
+}
