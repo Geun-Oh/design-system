@@ -93,3 +93,13 @@ input 컴포넌트를 가지고 기본적인 form 예제를 만들었다.
 ### 22.08.12
 
 LoginForm에서 Form 태그는 포함시키지 않았다. 나중에 직접 감싸도록 하자.
+
+### 22.08.13
+
+Updated Button Story Configuration.
+
+figma를 이용해 헤더 밑 전체 페이지 디자인 구성을 시작함.
+
+### 22.08.16
+
+Header 작업 다시 진행중!!
