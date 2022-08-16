@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { jsx, css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
 
 type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";
 
 interface InputProps {
+    themeType: ThemeType;
     type: InputType;
     width: string;
     icon?: IconProps["type"];
@@ -14,8 +15,8 @@ interface InputProps {
     height?: string;
 }
 
-export const Input = ({ type, width, icon, name, height }: InputProps) => {
-
+export const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
+    const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState("");
     const [stepNumber, setStepNumber] = React.useState(0);
@@ -39,25 +40,25 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
     switch (type) {
         case "textInput":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <input css={textInputStyle()} placeholder="Input Text" type="text" name={name}></input>
                 </div>
             )
         case "date":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <input css={textInputStyle()} type="date" name={name}></input>
                 </div>
             )
         case "phoneNumber":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <input css={textInputStyle()} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
                 </div>
             )
         case "password":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <input type={passwordType} css={textInputStyle()} name={name} />
                     <button onMouseDown={() => setPasswordType("text")} onMouseUp={() => setPasswordType("password")} style={{ width: "16px", height: "16px", border: "none", outline: "none", background: "none" }}>
                         <Icon type="eye" />
@@ -66,14 +67,14 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
             )
         case "searchField":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <Icon type="magnifyingGlass" />
                     <input css={textInputStyle()} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name}></input>
                 </div>
             )
         case "inputWithSteper":
             return (
-                <div css={style(width = "80px")}>
+                <div css={style({ width: "80px", theme })}>
                     <div css={textInputStyle()}>{stepNumber}</div>
                     <div className='steperwrapper' css={steperWrapperStyle()}>
                         <button onClick={() => setStepNumber(prev => prev + 1)}>
@@ -97,12 +98,15 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
 }
 
 Input.defaultProps = {
+    themeType: "darkMode",
     width: "300px",
     height: "300px",
 }
 
-const style = (width) => css`
+const style = ({ width, theme }) => css`
     width: ${width};
+    background-color: ${theme.BackgroundColor};
+    color: ${theme.Color};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: 0.3px solid ${BaseStyles.Color.Black0};

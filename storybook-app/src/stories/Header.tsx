@@ -3,7 +3,6 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles, Themes } from "../themes";
 import { Icon, IconProps } from "./Icon";
-import image1 from "../icons/RESON&CE.png";
 
 type ThemeType = "lightMode" | "darkMode";
 
@@ -32,7 +31,6 @@ export const Header = ({ themeType, imgUrl, iconType, navOptions }) => {
 
 Header.defaultProps = {
     themeType: "lightMode",
-    imgUrl: image1,
     iconType: "donorRight",
     navOptions: ["Home", "About", "Reservation", "More"]
 }
@@ -52,10 +50,17 @@ const style = (theme) => css`
         height: 24px;
     }
     div {
-        width: 30vw;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        span {
+            margin-right: 5vw;
+            margin-left: 5vw;
+            font-size: 1.5rem;
+            color: ${theme.Color};
+            font-family: ${BaseStyles.Font.FiraCode};
+            font-weight: ${BaseStyles.Text.Border1};
+        }
     }
 `

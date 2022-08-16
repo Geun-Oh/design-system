@@ -53,6 +53,8 @@ export const BaseStyles = {
     }
 }
 
+export type ThemeType = "lightMode" | "darkMode";
+
 export const Themes = {
     LightMode: {
         BackgroundColor: "#FFFFFF",
