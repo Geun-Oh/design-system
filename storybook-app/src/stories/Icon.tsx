@@ -9,7 +9,7 @@ export interface IconProps {
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     type: TypeProps;
     scale?: number;
-    fill: "#000000" | "#FFCD80";
+    fill: "#000000" | "#FFCD80" | "#FFFFFF" | string;
     onMouseDown?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseUp?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }

@@ -13,7 +13,7 @@ interface HeaderProps {
     navOptions: string[];
 }
 
-export const Header = ({ themeType, imgUrl, iconType, navOptions }) => {
+export const Header = ({ themeType, imgUrl, iconType, navOptions }: HeaderProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
 
     return (

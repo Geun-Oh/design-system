@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { jsx, css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
 import { Button } from "./Button";
 import image1 from "../icons/image1.png";
 
 interface CardProps {
+    themeType: ThemeType;
     head?: string;
     icon?: IconProps["type"];
     title: string;
@@ -17,26 +18,29 @@ interface CardProps {
     imgUrl: string | null;
 }
 
-export const Card = ({ head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
+export const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
+    const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
+
     return (
         <div>
-            <div css={style(width, image)} className='cardwrapper'>
-                {head === undefined ? null : <div className='headwrapper'>{head}</div>}
+            <div css={style({ width, image, theme })} className='cardwrapper'>
+                {head === undefined ? null : <div className='headwrapper' style={{ backgroundColor: theme.BackgroundColor, color: theme.Color }}>{head}</div>}
                 {icon === undefined ? null : <div className='iconwrapper'>
-                    <Icon type={icon} scale={2.5} />
+                    <Icon type={icon} scale={2.5} fill={theme.Color} />
                 </div>}
                 <p>{title}</p>
                 <span>{detail}</span>
-                {image === false && confirmButton === true ? <Button label="Submit" size="large" /> : null}
+                {image === false && confirmButton === true ? <Button label="Submit"/> : null}
             </div>
-            {image === false ? null : <div css={imgStyle(width, imgUrl)}>
-                {confirmButton === false ? null : <Button label="Submit" size="large" />}
+            {image === false ? null : <div css={imgStyle({ width, imgUrl })}>
+                {confirmButton === false ? null : <Button label="Submit" />}
             </div>}
         </div>
     )
 }
 
 Card.defaultProps = {
+    themeType: "lightMode",
     title: "Card Example",
     width: 300,
     detail: "Example of a card's description. Stick to one or twe sentences.",
@@ -44,7 +48,7 @@ Card.defaultProps = {
     imgUrl: image1,
 }
 
-const style = (width, image) => css`
+const style = ({ width, image, theme }) => css`
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: none;
@@ -55,7 +59,8 @@ const style = (width, image) => css`
     align-items: center;
     padding: 1rem 1rem;
     border-radius: ${image === false ? "1.5rem" : "1.5rem 1.5rem 0 0"};
-    background: white;
+    background: ${theme.BackgroundColor};
+    color: ${theme.Color};
     .headwrapper {
         font-weight: ${BaseStyles.Text.Border0};
         height: 24px;
@@ -83,7 +88,7 @@ const style = (width, image) => css`
     }
 `
 
-const imgStyle = (width, imgUrl) => css`
+const imgStyle = ({ width, imgUrl }) => css`
     width: ${width}px;
     height: ${width * 0.8}px;
     padding: 1rem 1rem;
