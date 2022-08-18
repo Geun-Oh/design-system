@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { jsx, css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
 
 type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";
 
 interface InputProps {
+    themeType: ThemeType;
     type: InputType;
     width: string;
     icon?: IconProps["type"];
@@ -14,8 +15,8 @@ interface InputProps {
     height?: string;
 }
 
-export const Input = ({ type, width, icon, name, height }: InputProps) => {
-
+export const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
+    const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState("");
     const [stepNumber, setStepNumber] = React.useState(0);
@@ -39,26 +40,26 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
     switch (type) {
         case "textInput":
             return (
-                <div css={style(width)}>
-                    <input css={textInputStyle()} placeholder="Input Text" type="text" name={name}></input>
+                <div css={style({ width, theme })}>
+                    <input css={textInputStyle(theme)} placeholder="Input Text" type="text" name={name}></input>
                 </div>
             )
         case "date":
             return (
-                <div css={style(width)}>
-                    <input css={textInputStyle()} type="date" name={name}></input>
+                <div css={style({ width, theme })}>
+                    <input css={textInputStyle(theme)} type="date" name={name}></input>
                 </div>
             )
         case "phoneNumber":
             return (
-                <div css={style(width)}>
-                    <input css={textInputStyle()} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
+                <div css={style({ width, theme })}>
+                    <input css={textInputStyle(theme)} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
                 </div>
             )
         case "password":
             return (
-                <div css={style(width)}>
-                    <input type={passwordType} css={textInputStyle()} name={name} />
+                <div css={style({ width, theme })}>
+                    <input type={passwordType} css={textInputStyle(theme)} name={name} />
                     <button onMouseDown={() => setPasswordType("text")} onMouseUp={() => setPasswordType("password")} style={{ width: "16px", height: "16px", border: "none", outline: "none", background: "none" }}>
                         <Icon type="eye" />
                     </button>
@@ -66,16 +67,16 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
             )
         case "searchField":
             return (
-                <div css={style(width)}>
+                <div css={style({ width, theme })}>
                     <Icon type="magnifyingGlass" />
-                    <input css={textInputStyle()} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name}></input>
+                    <input css={textInputStyle(theme)} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name}></input>
                 </div>
             )
         case "inputWithSteper":
             return (
-                <div css={style(width = "80px")}>
-                    <div css={textInputStyle()}>{stepNumber}</div>
-                    <div className='steperwrapper' css={steperWrapperStyle()}>
+                <div css={style({ width: "80px", theme })}>
+                    <div css={textInputStyle(theme)}>{stepNumber}</div>
+                    <div className='steperwrapper' css={steperWrapperStyle(theme)}>
                         <button onClick={() => setStepNumber(prev => prev + 1)}>
                             <Icon type="angleUp" />
                         </button>
@@ -87,8 +88,8 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
             )
         case "textAreaInput":
             return (
-                <div css={textAreaStyle(width)}>
-                    <textarea css={textAreaInputStyle(height)} placeholder="Input Text" name={name}></textarea>
+                <div css={textAreaStyle({ width, theme })}>
+                    <textarea css={textAreaInputStyle({ height, theme })} placeholder="Input Text" name={name}></textarea>
                 </div>
             )
         default:
@@ -97,12 +98,15 @@ export const Input = ({ type, width, icon, name, height }: InputProps) => {
 }
 
 Input.defaultProps = {
+    themeType: "darkMode",
     width: "300px",
     height: "300px",
 }
 
-const style = (width) => css`
+const style = ({ width, theme }) => css`
     width: ${width};
+    background-color: ${theme.BackgroundColor};
+    color: ${theme.Color};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: 0.3px solid ${BaseStyles.Color.Black0};
@@ -112,14 +116,18 @@ const style = (width) => css`
     align-items: center;
     padding: 1rem;
     border-radius: 6px;
-    background: white;
     &:hover {
         border: 1px solid ${BaseStyles.Color.Beige2};
     }
+    input::placeholder {
+        color: ${theme.Color};
+    }
 `
 
-const textInputStyle = () => css`
+const textInputStyle = (theme) => css`
     width: 100%;
+    background-color: ${theme.BackgroundColor};
+    color: ${theme.Color};
     font-family: ${BaseStyles.Font.FiraCode};
     font-size: 1rem;
     border: none;
@@ -127,8 +135,10 @@ const textInputStyle = () => css`
     text-decoration: none;
 `
 
-const steperWrapperStyle = () => css`
+const steperWrapperStyle = (theme) => css`
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
+    background-color: ${theme.BackgroundColor};
+    color: ${theme.Color};
     width: 20px;
     height: 32.5px;
     display: flex;
@@ -146,7 +156,9 @@ const steperWrapperStyle = () => css`
     }
 `
 
-const textAreaStyle = (width) => css`
+const textAreaStyle = ({ width, theme }) => css`
+background-color: ${theme.BackgroundColor};
+color: ${theme.Color};
 width: ${width};
 box-shadow: ${BaseStyles.Shadow.BottomDefault};
 transition-duration: 0.5s;
@@ -155,13 +167,17 @@ display: flex;
 flex-direction: row;
 padding: 1rem;
 border-radius: 6px;
-background: white;
 &:hover {
     border: 1px solid ${BaseStyles.Color.Beige2};
 }
+textarea::placeholder {
+    color: ${theme.Color};
+}
 `
 
-const textAreaInputStyle = (height) => css`
+const textAreaInputStyle = ({ height, theme }) => css`
+background-color: ${theme.BackgroundColor};
+color: ${theme.Color};
 width: 100%;
 height: ${height};
 font-family: ${BaseStyles.Font.FiraCode};
