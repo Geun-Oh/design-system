@@ -98,7 +98,7 @@ export const Input = ({ themeType, type, width, icon, name, height }: InputProps
 }
 
 Input.defaultProps = {
-    themeType: "darkMode",
+    themeType: "lightMode",
     width: "300px",
     height: "300px",
 }
