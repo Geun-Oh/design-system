@@ -6,8 +6,11 @@ import { BaseStyles } from "../themes";
 type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "xmark" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none" | "hamburger" | "kebab" | "meetball" | "bento" | "donorRight" | "donorLeft" | "calendar" | "flag" | "triangleDown" | "eye" | "magnifyingGlass";
 
 export interface IconProps {
+    /**아이콘 클릭 시 발생하는 액션을 입력해주세요. */
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+    /**아이콘의 타입을 입력해주세요. */
     type: TypeProps;
+    /**아이콘의 크기를 설정해주세요. 기본은 12*12px 이며, 입력받은 수만큼 비율이 변화합니다. */
     scale?: number;
     fill: "#000000" | "#FFCD80" | "#FFFFFF" | string;
     onMouseDown?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
