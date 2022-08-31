@@ -26,7 +26,9 @@ interface CardProps {
     /**이미지의 주소를 입력해주세요. */
     imgUrl: string | null;
 }
-
+/**
+ * 다양한 옵션을 잘 선택해서 사용해주세요!
+ */
 export const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
 
@@ -39,10 +41,10 @@ export const Card = ({ themeType, head, icon, title, width, detail, confirmButto
                 </div>}
                 <p>{title}</p>
                 <span>{detail}</span>
-                {image === false && confirmButton === true ? <Button label="Submit"/> : null}
+                {image === false && confirmButton === true ? <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" /> : null}
             </div>
             {image === false ? null : <div css={imgStyle({ width, imgUrl })}>
-                {confirmButton === false ? null : <Button label="Submit" />}
+                {confirmButton === false ? null : <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" />}
             </div>}
         </div>
     )

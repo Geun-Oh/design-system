@@ -5,6 +5,9 @@ import { Badge } from "./Badge";
 export default {
     title: 'Components/Badge',
     component: Badge,
+    parameters: {
+        componentSubtitle: "특정 상태를 나타낼 때 사용되는 뱃지입니다."
+    }
 } as ComponentMeta<typeof Badge>;
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;

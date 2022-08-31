@@ -4,7 +4,7 @@ export const BaseStyles = {
         Black1: "#BBBBBB",
         Black2: "#767676",
         Black3: "#616161",
-        Black4: "#494949,",
+        Black4: "#494949",
         Beige0: "#FFECCE",
         Beige1: "#FBDDB1",
         Beige2: "#FED89E",

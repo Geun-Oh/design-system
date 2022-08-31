@@ -16,7 +16,9 @@ interface BadgeProps {
     /**뱃지의 상태표시자가 어떤 스타일로 위치할 지 선택해주세요. */
     type: TypeVars;
 }
-
+/**
+ * 상황에 맞게 타입을 설정하여 사용하세요!
+ */
 export const Badge = ({ innerText, state, width, type }: BadgeProps) => {
 
     const style = () => css`

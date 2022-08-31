@@ -5,6 +5,9 @@ import { Breadcrumb } from "./Breadcrumb";
 export default {
     title: 'Components/Breadcrumb',
     component: Breadcrumb,
+    parameters: {
+        componentSubtitle: "현제 페이지를 표시해주는 브레드크럼입니다."
+    }
 } as ComponentMeta<typeof Breadcrumb>;
 
 const Template: ComponentStory<typeof Breadcrumb> = (args) => <Breadcrumb {...args} />;
