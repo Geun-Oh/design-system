@@ -1,27 +1,27 @@
-# Name of our action
-name: 'Chromatic'
-# The event that will trigger the action
-on: 
-  push:
-    branches: [ main ]
+# .github/workflows/chromatic.yml
 
-# What the action will do
+# Workflow name
+name: 'Chromatic'
+
+# Event for the workflow
+on: push
+
+# List of jobs
 jobs:
-  test:
-    # The operating system it will run on
+  chromatic-deployment:
+    # Operating System
     runs-on: ubuntu-latest
-    env:
-      working-directory: storybook-app
-    # The list of steps that the action will go through
+    # Job steps
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
         working-directory: storybook-app
-        #👇 Adds Chromatic as a step in the workflow
-      - run: yarn chromatic
-        name: Deploy Chromatic
-        working-directory: storybook-app
-        # Options required for Chromatic's GitHub Action
-        # with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
-          # token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          workingDir: storybook-app
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
