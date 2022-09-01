@@ -24,15 +24,17 @@ interface CardProps {
     /**카드에 이미지 추가 여부를 선택해주세요. */
     image: boolean;
     /**이미지의 주소를 입력해주세요. */
-    imgUrl: string | null;
+    imgUrl: string;
 }
+type Theme = typeof Themes.LightMode;
+type Unit = "px" | "vh" | "vw" | "%";
 /**
  * 다양한 옵션을 잘 선택해서 사용해주세요!
  */
 export const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
-    let height;
-    let unit;
+    let height: string;
+    let unit: Unit;
     if(width.endsWith("px")) {
         height = width.slice(0, -2);
         unit = "px";
@@ -48,7 +50,7 @@ export const Card = ({ themeType, head, icon, title, width, detail, confirmButto
     }
     return (
         <div>
-            <div css={style({ width, image, theme })} className='cardwrapper'>
+            <div css={style(width, image, theme)} className='cardwrapper'>
                 {head === undefined ? null : <div className='headwrapper' style={{ backgroundColor: theme.BackgroundColor, color: theme.Color }}>{head}</div>}
                 {icon === undefined ? null : <div className='iconwrapper'>
                     <Icon type={icon} scale={2.5} fill={theme.Color} />
@@ -57,7 +59,7 @@ export const Card = ({ themeType, head, icon, title, width, detail, confirmButto
                 <span>{detail}</span>
                 {image === false && confirmButton === true ? <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" /> : null}
             </div>
-            {image === false ? null : <div css={imgStyle({ width, height, unit, imgUrl })}>
+            {image === false ? null : <div css={imgStyle(width, height!, unit!, imgUrl)}>
                 {confirmButton === false ? null : <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" />}
             </div>}
         </div>
@@ -74,7 +76,7 @@ Card.defaultProps = {
     imgUrl: image1,
 }
 
-const style = ({ width, image, theme }) => css`
+const style = ( width: string, image: boolean, theme: Theme ) => css`
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: none;
@@ -114,9 +116,9 @@ const style = ({ width, image, theme }) => css`
     }
 `
 
-const imgStyle = ({ width, height, unit, imgUrl }) => css`
+const imgStyle = (width: string, height: string, unit: Unit, imgUrl: string) => css`
     width: ${width};
-    height: ${height * 0.8}${unit};
+    height: ${Number(height) * 0.8}${unit};
     padding: 1rem 1rem;
     background: url(${imgUrl});
     background-size: cover;

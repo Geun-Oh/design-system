@@ -29,7 +29,7 @@ const paramElement = (params: string[]): JSX.Element | JSX.Element[] | null => {
     return null;
 }
 
-const style = (params) => css`
+const style = (params: string[]) => css`
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     outline: none;

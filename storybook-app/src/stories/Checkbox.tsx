@@ -32,6 +32,6 @@ Checkbox.defaultProps = {
     checked: false,
 }
 
-const scaleControl = (scale) => css`
+const scaleControl = (scale: number) => css`
     transform: scale(${scale});
 `

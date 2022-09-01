@@ -17,6 +17,7 @@ type HeaderProps = { // interface는 주석을 달 수 없었기에 type을 정�
     /**네비게이션 바에 지정할 옵션들을 설정해주세요. 배열을 받습니다. */
     navOptions: string[];
 }
+type Theme = typeof Themes.LightMode;
 
 export const Header = ({ themeType, imgUrl, iconType, navOptions }: HeaderProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
@@ -40,7 +41,7 @@ Header.defaultProps = {
     navOptions: ["Home", "About", "Reservation", "More"]
 }
 
-const style = (theme) => css`
+const style = (theme: Theme) => css`
     width: 100vw;
     height: 60px;
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
