@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 
 type StateType = "Access" | "Warning" | "Error" | "New" | "Wait";
@@ -30,7 +30,7 @@ export const Badge = ({ innerText, state, width, type }: BadgeProps) => {
     box-sizing: border-box;
     background: white;
     padding: 12px 16px;
-    border-radius: 16px;
+    border-radius: 1rem;
     height: 48px;
     font-size: ${BaseStyles.Text.Heading4};
     font-family: ${BaseStyles.Font.FiraCode};

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
 
@@ -20,7 +20,9 @@ interface InputProps {
     /**인풋의 높이를 지정해주세요. "100px", "50vw"와 같이 단위를 포함한 string으로 입력해야합니다. */
     height?: string;
 }
-
+/**
+ * 상황에 맞게 커스텀하여 사용해주세요.
+ */
 export const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
@@ -121,7 +123,7 @@ const style = ({ width, theme }) => css`
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 1rem;
     &:hover {
         border: 1px solid ${BaseStyles.Color.Beige2};
     }

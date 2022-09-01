@@ -5,7 +5,7 @@ import { BaseStyles } from "../themes";
 import { Icon } from "./Icon";
 
 interface DropdownProps {
-    /**드롭다운의 선택 옵션을 입력해주세요. */
+    /**드롭다운의 선택 옵션을 입력해주세요. 배열을 받습니다. */
     options: string[];
     /**드롭다운의 너비를 지정해주세요. "100px", "50vw"와 같이 단위를 포함한 string으로 입력해야합니다.  */
     width: string;

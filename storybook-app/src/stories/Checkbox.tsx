@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { css } from '@emotion/react';
 
 type BoxColor = "#000000" | "#FFCD80";
 

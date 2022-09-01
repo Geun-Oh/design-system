@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
 import { Button } from "./Button";
@@ -15,8 +15,8 @@ interface CardProps {
     icon?: IconProps["type"];
     /**카드의 제목을 입력헤주세요. */
     title: string;
-    /**카드의 너비를 입력해주세요. 다른 컴포넌트와 다르게 100, 50과 같이 px을 단위로 하는 number를 입력해야 합니다. */
-    width: number;
+    /**카드의 너비를 입력해주세요. "100px", "50vw"와 같이 단위를 포함한 string으로 입력해야합니다. */
+    width: string;
     /**카드를 통해 전달하고 싶은 말을 입력해주세요. */
     detail: string;
     /**카드에 버튼 필요 여부를 선택해주세요. */
@@ -31,7 +31,21 @@ interface CardProps {
  */
 export const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
-
+    let height;
+    let unit;
+    if(width.endsWith("px")) {
+        height = width.slice(0, -2);
+        unit = "px";
+    } else if(width.endsWith("vh")) {
+        height = width.slice(0, -2);
+        unit = "vh";
+    }else if(width.endsWith("vw")) {
+        height = width.slice(0, -2);
+        unit = "vw";
+    } else if(width.endsWith("%")) {
+        height = width.slice(0, -1);
+        unit = "%";
+    }
     return (
         <div>
             <div css={style({ width, image, theme })} className='cardwrapper'>
@@ -43,7 +57,7 @@ export const Card = ({ themeType, head, icon, title, width, detail, confirmButto
                 <span>{detail}</span>
                 {image === false && confirmButton === true ? <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" /> : null}
             </div>
-            {image === false ? null : <div css={imgStyle({ width, imgUrl })}>
+            {image === false ? null : <div css={imgStyle({ width, height, unit, imgUrl })}>
                 {confirmButton === false ? null : <Button onClick={() => console.log("Submit!")} innerText="Submit" theme="submit" />}
             </div>}
         </div>
@@ -53,7 +67,8 @@ export const Card = ({ themeType, head, icon, title, width, detail, confirmButto
 Card.defaultProps = {
     themeType: "lightMode",
     title: "Card Example",
-    width: 300,
+    head: "Beta",
+    width: "300px",
     detail: "Example of a card's description. Stick to one or twe sentences.",
     confirmButton: false,
     imgUrl: image1,
@@ -63,7 +78,7 @@ const style = ({ width, image, theme }) => css`
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
     border: none;
-    width: ${width}px;
+    width: ${width};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,9 +90,9 @@ const style = ({ width, image, theme }) => css`
     .headwrapper {
         font-weight: ${BaseStyles.Text.Border0};
         height: 24px;
-        width: ${width * 0.3}px;
+        width: 30%;
         border: 1px solid ${BaseStyles.Color.Black0};
-        border-radius: 12px;
+        border-radius: 1rem;
         background: white;
         text-align: center;
         transform: translateY(-28px);
@@ -87,21 +102,21 @@ const style = ({ width, image, theme }) => css`
         font-weight: ${BaseStyles.Text.Border1};
     }
     span {
-        width: ${width}px;
+        width: ${width};
         text-align: center;
         margin-bottom: 2rem;
         font-size: ${BaseStyles.Text.Heading4};
         font-weight: ${BaseStyles.Text.Border4};
     }
     Button {
-        width: ${width}px;
+        width: ${width};
         background: ${BaseStyles.Color.Beige1};
     }
 `
 
-const imgStyle = ({ width, imgUrl }) => css`
-    width: ${width}px;
-    height: ${width * 0.8}px;
+const imgStyle = ({ width, height, unit, imgUrl }) => css`
+    width: ${width};
+    height: ${height * 0.8}${unit};
     padding: 1rem 1rem;
     background: url(${imgUrl});
     background-size: cover;
@@ -112,7 +127,7 @@ const imgStyle = ({ width, imgUrl }) => css`
     justify-content: flex-end;
     align-items: center;
     Button {
-        width: ${width}px;
+        width: ${width};
         background: ${BaseStyles.Color.Beige1};
     }
 `

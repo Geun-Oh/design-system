@@ -7,6 +7,9 @@ import lightImg from "../icons/WhiteRESON&CE.png";
 export default {
     title: 'Pages/Header',
     component: Header,
+    parameters: {
+        componentSubtitle: "헤더 예시입니다."
+    }
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;

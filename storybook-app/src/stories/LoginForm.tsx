@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Input } from './Input';
 import { Button } from './Button';
@@ -20,7 +20,7 @@ export const LoginForm = ({ width }: LoginFormProps) => {
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Input type="textInput" width="300px" name="id" />
                     <div style={{ marginLeft: "20px" }}>
-                        <Button label="Valiable?" size='large' theme='link' />
+                        <Button onClick={() => console.log("Submit!")} height="40px" innerText="Valiable?" theme="link" />
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ export const LoginForm = ({ width }: LoginFormProps) => {
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Input type="textInput" width="300px" name="id" />
                     <div style={{ marginLeft: "20px" }}>
-                        <Button label="Submit" size='large' theme='link' />
+                        <Button onClick={() => console.log("Submit!")} height="40px" innerText="Submit" theme="link" />
                     </div>
                 </div>
             </div>
@@ -72,10 +72,10 @@ export const LoginForm = ({ width }: LoginFormProps) => {
                 <div style={{ marginBottom: "10px", fontFamily: BaseStyles.Font.FiraCode, fontSize: BaseStyles.Text.Heading3, fontWeight: BaseStyles.Text.Border0 }}>
                     Introduce yourself
                 </div>
-                    <Input type="textAreaInput" width="100%" name="Introduce" />
+                <Input type="textAreaInput" width="100%" name="Introduce" />
             </div>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <Button label="Submit" size="large" theme='delete' />
+                <Button onClick={() => console.log("Submit!")} height="40px" width="60%" innerText="Submit" theme="delete" />
             </div>
         </div>
     )
@@ -90,7 +90,7 @@ const style = (width) => css`
     justify-content: center;
     align-items: flex-start;
     padding: 3rem 3rem;
-    border-radius: 6px;
+    border-radius: 1rem;
 `
 
 const idInputStyle = () => css`

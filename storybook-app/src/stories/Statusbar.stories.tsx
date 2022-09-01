@@ -6,7 +6,7 @@ export default {
     title: 'Components/Statusbar',
     component: Statusbar,
     parameters: {
-        componentSubtitle: "다양한 곳에 활용할 수 있는 기본적인 스테이터스 바"
+        componentSubtitle: "다양한 곳에 활용할 수 있는 기본적인 스테이터스 바입니다."
     }
 } as ComponentMeta<typeof Statusbar>;
 

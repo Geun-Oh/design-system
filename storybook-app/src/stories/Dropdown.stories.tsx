@@ -5,6 +5,9 @@ import { Dropdown } from "./Dropdown";
 export default {
     title: 'Components/Dropdown',
     component: Dropdown,
+    parameters: {
+        componentSubtitle: "드롭다운 메뉴를 통해 유저에게 선택권을 제공하세요!"
+    }
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;

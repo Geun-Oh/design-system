@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Icon, IconProps } from './Icon';
 
@@ -63,7 +63,7 @@ const style = ( width: string, height: string, backgroundColor: string, color: s
   font-family: ${BaseStyles.Font.FiraCode};
   font-weight: ${BaseStyles.Text.Border4};
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 1rem;
   line-height: auto;
   display: flex;
   flex-direction: row;

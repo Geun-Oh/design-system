@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css, keyframes } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { css, keyframes } from '@emotion/react';
 
 type TypeProps = 'angleDown' | "angleUp" | "angleRight" | "angleLeft" | "xmark" | "home" | "file" | "chat" | "chart" | "checkout" | "loading" | "none" | "hamburger" | "kebab" | "meetball" | "bento" | "donorRight" | "donorLeft" | "calendar" | "flag" | "triangleDown" | "eye" | "magnifyingGlass";
 

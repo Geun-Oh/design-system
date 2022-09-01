@@ -5,6 +5,9 @@ import { Input } from "./Input";
 export default {
     title: 'Components/Input',
     component: Input,
+    parameters: {
+        componentSubtitle: "인풋 플레이스입니다."
+    }
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;

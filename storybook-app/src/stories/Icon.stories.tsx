@@ -5,6 +5,9 @@ import { Icon } from "./Icon";
 export default {
     title: 'Components/Icon',
     component: Icon,
+    parameters: {
+        componentSubtitle: "아이콘입니다. 종류를 선택해 사용해주세요."
+    }
 } as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;

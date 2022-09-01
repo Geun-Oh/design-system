@@ -5,6 +5,9 @@ import { Toggle } from "./Toggle";
 export default {
     title: 'Components/Toggle',
     component: Toggle,
+    parameters: {
+        componentSubtitle: "토글이 가능한 오브젝트 입니다."
+    }
 } as ComponentMeta<typeof Toggle>;
 
 const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;
