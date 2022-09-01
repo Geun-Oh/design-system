@@ -151,3 +151,5 @@ Theme을 전역적으로 관리하기 위해 redux-toolkit을 추가하는 브�
 
 - Chromatic을 이용하여 deploy.
 - github Actions를 이용한 CI 환경 구성.
+- npm publish 과정에서 타입 오류가 많았다. 왜인지는 몰라도 그쪽 리포지토리에서만 에러가 발생하고 여기에서는 아무 문제가 없다고 뜬다..
+일단 해당 내용을 velog에 잘 정리해두자.

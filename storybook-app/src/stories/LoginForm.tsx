@@ -81,7 +81,7 @@ export const LoginForm = ({ width }: LoginFormProps) => {
     )
 }
 
-const style = (width) => css`
+const style = (width: string) => css`
     width: ${width};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;

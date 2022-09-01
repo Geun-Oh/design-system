@@ -33,7 +33,7 @@ export const Button = ({ onClick, innerText, width, height, theme, iconType, bac
   return (
     <button css={[style(width!, height!, backgroundColor!, color!, hoverColor!), themes[theme!]]} onClick={onClick}>
       {innerText}
-      <div css={iconStyle(iconType)} >
+      <div css={iconStyle(iconType!)} >
         <Icon type={iconType} />
       </div>
     </button>
@@ -45,7 +45,7 @@ Button.defaultProps = {
   backgroundColor: "#FFFFFF",
 };
 
-const iconStyle = (iconType) => css`
+const iconStyle = (iconType: IconProps["type"]) => css`
   ${iconType === "none" ? null : "padding-left: 16px" };
 `
 
