@@ -24,4 +24,5 @@ jobs:
         with:
           workingDir: storybook-app
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 5a67bddd488c
+          # ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
