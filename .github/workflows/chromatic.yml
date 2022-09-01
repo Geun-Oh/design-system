@@ -18,8 +18,8 @@ jobs:
       - run: yarn
         working-directory: storybook-app
         #👇 Adds Chromatic as a step in the workflow
-      - name: Deploy Chromatic
       - run: yarn chromatic
+        name: Deploy Chromatic
         working-directory: storybook-app
         # Options required for Chromatic's GitHub Action
         # with:
