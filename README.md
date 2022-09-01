@@ -148,3 +148,6 @@ Theme을 전역적으로 관리하기 위해 redux-toolkit을 추가하는 브�
 - 자잘하게 걸려있는 오류들을 제거.
 - Card 컴포넌트의 width도 string으로 입력받을 수 있도록 바꾸고, endsWith 메서드를 이용해 단위와 숫자를 분리.
 - Input을 비롯한 전체 컴포넌트들의 border-radius를 1rem(16px)로 고정.
+
+- Chromatic을 이용하여 deploy.
+- github Actions를 이용한 CI 환경 구성.
