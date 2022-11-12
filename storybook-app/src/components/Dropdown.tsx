@@ -54,7 +54,7 @@ const Dropdown = ({ options, width, disabled, multiSelect, onChange }: DropdownP
                         <Icon type={angle} scale={1.5} />
                     </button>
                 </div>
-                <div css={optionStyle({ width, toggled })}>
+                <div css={optionStyle({ width, toggled, multiSelect })}>
                     {options && options.map((item: string, index: number): JSX.Element => {
                         return <p onClick={() => {
                             setSelected(item)
@@ -76,7 +76,7 @@ const Dropdown = ({ options, width, disabled, multiSelect, onChange }: DropdownP
                         {placeHolderForMultiSelection()}
                     </div>
                 </div>
-                <div css={optionStyle({ width, toggled, multiOptions })}>
+                <div css={optionStyle({ width, toggled, multiOptions, multiSelect })}>
                     {multiOptions && multiOptions.map((item: string, index: number): JSX.Element => {
                         return <p onClick={() => {
                             setMultiSelected(prev => [...prev, item])
@@ -96,103 +96,103 @@ Dropdown.defaultProps = {
     multiSelect: false,
 }
 
-const optionStyle = ({ width, toggled, multiOptions }: { width: string, toggled: boolean, multiOptions?: string[] }) =>  css`
-box-shadow: ${BaseStyles.Shadow.BottomDefault};
-transition-duration: 0.5s;
-border: none;
-width: ${width};
-max-height: 100px;
-overflow-x: hidden;
-overflow-y: scroll;
-padding: ${multiOptions?.length === 0 ? "0rem 1.5rem" : "0.5rem 1.5rem"};
-border-radius: 1rem;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-transform: scaleY(${toggled ? 1 : 0});
-transform-origin: top center;
-p {
+const optionStyle = ({ width, toggled, multiOptions, multiSelect }: { width: string, toggled: boolean, multiOptions?: string[], multiSelect: boolean }) =>  css`
+    box-shadow: ${BaseStyles.Shadow.BottomDefault};
+    transition-duration: 0.5s;
+    border: none;
     width: ${width};
-}
-::-webkit-scrollbar-track {
-    background-color: none;
-  }
-  ::-webkit-scrollbar {
-    width: 6px;               /* width of the entire scrollbar */
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: lightgray;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: none;  /* creates padding around scroll thumb */
-  }
+    max-height: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: ${!multiSelect ? "0.5rem 1.5rem" : multiOptions?.length === 0 ? "0rem 1.5rem" : "0.5rem 1.5rem"};
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transform: scaleY(${toggled ? 1 : 0});
+    transform-origin: top center;
+    p {
+        width: ${width};
+    }
+    ::-webkit-scrollbar-track {
+        background-color: none;
+    }
+    ::-webkit-scrollbar {
+        width: 6px;               /* width of the entire scrollbar */
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: lightgray;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: none;  /* creates padding around scroll thumb */
+    }
 `
 
 const style = ({ width }: { width: string}) => css`
-box-shadow: ${BaseStyles.Shadow.BottomSmall};
-transition-duration: 0.5s;
-border: 0.3px solid ${BaseStyles.Color.Black0};
-height: 1rem;
-width: ${width};
-padding: 1rem 1.5rem;
-margin-bottom: 0.5rem;
-border-radius: 1rem;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-Icon {
-    transform-origin: center;
-}
-&:hover {
-    border: 1px solid ${BaseStyles.Color.Beige2};
-}
+    box-shadow: ${BaseStyles.Shadow.BottomSmall};
+    transition-duration: 0.5s;
+    border: 0.3px solid ${BaseStyles.Color.Black0};
+    height: 1rem;
+    width: ${width};
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    Icon {
+        transform-origin: center;
+    }
+    &:hover {
+        border: 1px solid ${BaseStyles.Color.Beige2};
+    }
 `
 
 const multiSelectorStyle = ({ width }: { width: string}) => css`
-box-shadow: ${BaseStyles.Shadow.BottomSmall};
-transition-duration: 0.5s;
-border: 0.3px solid ${BaseStyles.Color.Black0};
-width: ${width};
-padding: 1rem 1.5rem;
-margin-bottom: 0.5rem;
-border-radius: 1rem;
-display: inline-flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-Icon {
-    transform-origin: center;
-}
-&:hover {
-    border: 1px solid ${BaseStyles.Color.Beige2};
-}
+    box-shadow: ${BaseStyles.Shadow.BottomSmall};
+    transition-duration: 0.5s;
+    border: 0.3px solid ${BaseStyles.Color.Black0};
+    width: ${width};
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    Icon {
+        transform-origin: center;
+    }
+    &:hover {
+        border: 1px solid ${BaseStyles.Color.Beige2};
+    }
 `
 
 const xmarkStyle = css`
-width: 18px;
-height: 18px;
-outline: none;
-border: none;
-background: none;
-`
-
-const multiOptionStyle = () => css`
-font-family: ${BaseStyles.Font.FiraCode};
-font-weight: ${BaseStyles.Text.Border3};
-height: 24px;
-background: #FFECCE;
-color: #616161;
-margin-left: 10px;
-margin-top: 6px;
-padding: 4px 4px 4px 10px;
-border-radius: 6px;
-button {
+    width: 18px;
+    height: 18px;
     outline: none;
     border: none;
     background: none;
-    transform: translateY(2px);
-}
+`
+
+const multiOptionStyle = () => css`
+    font-family: ${BaseStyles.Font.FiraCode};
+    font-weight: ${BaseStyles.Text.Border3};
+    height: 24px;
+    background: #FFECCE;
+    color: #616161;
+    margin-left: 10px;
+    margin-top: 6px;
+    padding: 4px 4px 4px 10px;
+    border-radius: 6px;
+    button {
+        outline: none;
+        border: none;
+        background: none;
+        transform: translateY(2px);
+    }
 `
 
 export default Dropdown;
