@@ -19,7 +19,7 @@ export interface IconProps {
     onMouseUp?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Icon = ({ onClick, type, scale, fill, onMouseDown, onMouseUp }: IconProps) => {
+const Icon = ({ onClick, type, scale, fill, onMouseDown, onMouseUp }: IconProps) => {
     switch (type) {
         case "angleDown":
             return (
@@ -188,3 +188,5 @@ const rotate = keyframes`
 const rotateCss = css`
 animation: ${rotate} 2s ease infinite;
 `
+
+export default Icon;

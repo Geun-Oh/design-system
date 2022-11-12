@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 
 export default {
     title: 'Pages/LoginForm',

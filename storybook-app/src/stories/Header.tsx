@@ -2,7 +2,7 @@
 import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { BaseStyles, Themes } from "../themes";
-import { Icon, IconProps } from "./Icon";
+import Icon, { IconProps } from "./Icon";
 // import { useAppDispatch, useAppSelector } from '../store/config';
 // import { setCounter } from '../store/slices/themeSlice';
 
@@ -19,7 +19,7 @@ type HeaderProps = { // interface는 주석을 달 수 없었기에 type을 정�
 }
 type Theme = typeof Themes.LightMode;
 
-export const Header = ({ themeType, imgUrl, iconType, navOptions }: HeaderProps) => {
+const Header = ({ themeType, imgUrl, iconType, navOptions }: HeaderProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
 
     return (
@@ -70,3 +70,5 @@ const style = (theme: Theme) => css`
         }
     }
 `
+
+export default Header;

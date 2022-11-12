@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Header } from "./Header";
+import Header from "./Header";
 import darkImg from "../icons/RESON&CE.png";
 import lightImg from "../icons/WhiteRESON&CE.png";
 

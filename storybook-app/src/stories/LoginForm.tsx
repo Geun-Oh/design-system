@@ -2,7 +2,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
-import { Input } from './Input';
+import Input from './Input';
 import Button from './Button';
 import Dropdown from './Dropdown';
 
@@ -10,7 +10,7 @@ interface LoginFormProps {
     width: string;
 }
 
-export const LoginForm = ({ width }: LoginFormProps) => {
+const LoginForm = ({ width }: LoginFormProps) => {
     return (
         <div className='formWrapper' css={style(width)}>
             <div className='idInput' css={idInputStyle()}>
@@ -65,7 +65,7 @@ export const LoginForm = ({ width }: LoginFormProps) => {
                     Available Skills
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Dropdown options={["React.js", "Javascript", "Typescript", "Node.js", "Vue.js", "AWS", "Angular.js", "Redux.js"]} width="300px" multiSelect={true} />
+                    <Dropdown options={["React.js", "Javascript", "Typescript", "Node.js", "Vue.js", "AWS", "Angular.js", "Redux.js"]} width="300px" multiSelect={true} onChange={(e) => console.log(e)} />
                 </div>
             </div>
             <div className='textAreaInput' css={idInputStyle()}>
@@ -101,3 +101,5 @@ const idInputStyle = () => css`
     margin-bottom: 40px;
     width: 90%;
 `
+
+export default LoginForm;

@@ -2,7 +2,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
-import { Icon, IconProps } from "./Icon";
+import Icon, { IconProps } from "./Icon";
 
 type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";
 
@@ -24,7 +24,7 @@ type Theme = typeof Themes.LightMode;
 /**
  * 상황에 맞게 커스텀하여 사용해주세요.
  */
-export const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
+const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState("");
@@ -195,3 +195,5 @@ border: none;
 outline: none;
 text-decoration: none;
 `
+
+export default Input;
