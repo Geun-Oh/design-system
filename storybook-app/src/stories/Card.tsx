@@ -2,7 +2,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
-import { Icon, IconProps } from "./Icon";
+import Icon, { IconProps } from "./Icon";
 import Button from "./Button";
 import image1 from "../icons/image1.png";
 
