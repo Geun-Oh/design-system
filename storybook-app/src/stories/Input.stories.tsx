@@ -13,22 +13,22 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const TextInput = Template.bind({});
-TextInput.args = { type: "textInput", width: "300px", onChange: (e) => console.log(e.target.value) };
+TextInput.args = { type: "textInput", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const Date = Template.bind({});
-Date.args = { type: "date", width: "300px" };
+Date.args = { type: "date", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const PhoneNumber = Template.bind({});
-PhoneNumber.args = { type: "phoneNumber", width: "300px" };
+PhoneNumber.args = { type: "phoneNumber", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const Password = Template.bind({});
-Password.args = { type: "password", width: "300px" };
+Password.args = { type: "password", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const SearchField = Template.bind({});
-SearchField.args = { type: "searchField", width: "300px" };
+SearchField.args = { type: "searchField", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const InputWithSteper = Template.bind({});
-InputWithSteper.args = { type: "inputWithSteper", width: "300px" };
+InputWithSteper.args = { type: "inputWithSteper", width: "300px", onChange: (v) => console.log(v.value) };
 
 export const TextAreaInput = Template.bind({});
-TextAreaInput.args = { type: "textAreaInput", width: "300px" };
+TextAreaInput.args = { type: "textAreaInput", width: "300px", onChange: (v) => console.log(v.value) };

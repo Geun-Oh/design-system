@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useRef } from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
 import Icon, { IconProps } from "./Icon";
@@ -32,14 +32,7 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState<string>(value!);
     const [stepNumber, setStepNumber] = React.useState<number>(numberValue!);
-
-    const handlePress = (e: any) => {
-        const regex = /^[0-9\b -]{0,13}$/;
-        if (regex.test(e.target.value)) {
-            setInputValue(e.target.value);
-        }
-        onChange(e);
-    }
+    const numberInputRef = useRef<HTMLInputElement>(null);
 
     React.useEffect(() => {
         if (inputValue.length === 10) {
@@ -50,9 +43,17 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
         }
     }, [inputValue]);
 
+    const handlePress = (e: any) => {
+        const regex = /^[0-9\b -]{0,13}$/;
+        if (regex.test(e.target.value)) {
+            setInputValue(e.target.value);
+            onChange(e.targert);
+        }
+    }
+
     const handleChange = (e: any) => {
         setInputValue(e.target.value);
-        onChange(e);
+        onChange(e.target);
     };
 
     switch (type) {
@@ -92,16 +93,23 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
             )
         case "inputWithSteper":
             return (
-                <div css={style(width="80px", theme)}>
-                    <input css={textInputStyle(theme)} name={name} value={stepNumber} onChange={(e: any) => {
-                        setStepNumber(e.target.value);
-                        onChange(e);
-                    }} />
+                <div css={style(width = "80px", theme)}>
+                    <input type="number" ref={numberInputRef} readOnly css={textInputStyle(theme)} name={name} value={stepNumber} />
                     <div className='steperwrapper' css={steperWrapperStyle(theme)}>
-                        <button onClick={() => setStepNumber(prev => prev + 1)}>
+                        <button onClick={() => {
+                            setStepNumber(prev => prev + 1);
+                            if(numberInputRef.current) {
+                                onChange(numberInputRef.current);
+                            }
+                        }}>
                             <Icon type="angleUp" />
                         </button>
-                        <button onClick={() => setStepNumber(prev => prev - 1)}>
+                        <button onClick={() => {
+                            setStepNumber(prev => prev - 1);
+                            if(numberInputRef.current) {
+                                onChange(numberInputRef.current);
+                            }
+                        }}>
                             <Icon type="angleDown" />
                         </button>
                     </div>
@@ -110,7 +118,7 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
         case "textAreaInput":
             return (
                 <div css={textAreaStyle(width, theme)}>
-                    <textarea css={textAreaInputStyle(height!, theme)} placeholder="Input Text" name={name} value={inputValue} onChange={(e) => handleChange(e)}  />
+                    <textarea css={textAreaInputStyle(height!, theme)} placeholder="Input Text" name={name} value={inputValue} onChange={(e) => handleChange(e)} />
                 </div>
             )
         default:
@@ -125,7 +133,6 @@ Input.defaultProps = {
     type: "textInput",
     value: "",
     numberValue: 0,
-    onChange: (e) => console.log(e.target.value),
     name: "text",
 }
 
