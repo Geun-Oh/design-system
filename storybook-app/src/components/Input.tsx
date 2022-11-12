@@ -5,6 +5,7 @@ import { BaseStyles, Themes, ThemeType } from "../themes";
 import Icon, { IconProps } from "./Icon";
 
 type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";
+type Theme = typeof Themes.LightMode;
 
 interface InputProps {
     /**라이트모드와 다크모드를 설정해주세요. */
@@ -16,25 +17,28 @@ interface InputProps {
     /**아이콘의 타입을 설정해주세요. */
     icon?: IconProps["type"];
     /**인풋의 이름을 지정해주세요. 백엔드와의 통신에 제출할 폼에서 유용하게 사용됩니다. */
-    name?: string;
+    name: string;
     /**인풋의 높이를 지정해주세요. "100px", "50vw"와 같이 단위를 포함한 string으로 입력해야합니다. */
     height?: string;
+    value?: string;
+    numberValue?: number;
+    onChange: (e: any) => any;
 }
-type Theme = typeof Themes.LightMode;
-/**
- * 상황에 맞게 커스텀하여 사용해주세요.
- */
-const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
+
+
+
+const Input = ({ themeType, type, width, icon, name, value, numberValue, height, onChange }: InputProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
-    const [inputValue, setInputValue] = React.useState("");
-    const [stepNumber, setStepNumber] = React.useState(0);
+    const [inputValue, setInputValue] = React.useState<string>(value!);
+    const [stepNumber, setStepNumber] = React.useState<number>(numberValue!);
 
     const handlePress = (e: any) => {
         const regex = /^[0-9\b -]{0,13}$/;
         if (regex.test(e.target.value)) {
             setInputValue(e.target.value);
         }
+        onChange(e);
     }
 
     React.useEffect(() => {
@@ -46,29 +50,34 @@ const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
         }
     }, [inputValue]);
 
+    const handleChange = (e: any) => {
+        setInputValue(e.target.value);
+        onChange(e);
+    };
+
     switch (type) {
         case "textInput":
             return (
                 <div css={style(width, theme)}>
-                    <input css={textInputStyle(theme)} placeholder="Input Text" type="text" name={name}></input>
+                    <input css={textInputStyle(theme)} placeholder="Input Text" type="text" name={name} value={inputValue} onChange={(e) => handleChange(e)} />
                 </div>
             )
         case "date":
             return (
                 <div css={style(width, theme)}>
-                    <input css={textInputStyle(theme)} type="date" name={name}></input>
+                    <input css={textInputStyle(theme)} type="date" name={name} value={inputValue} onChange={(e) => handleChange(e)} />
                 </div>
             )
         case "phoneNumber":
             return (
                 <div css={style(width, theme)}>
-                    <input css={textInputStyle(theme)} type="text" onChange={handlePress} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
+                    <input css={textInputStyle(theme)} type="text" onChange={(e) => handlePress(e)} name={name} value={inputValue} placeholder="010-1234-5678" maxLength={13} />
                 </div>
             )
         case "password":
             return (
                 <div css={style(width, theme)}>
-                    <input type={passwordType} css={textInputStyle(theme)} name={name} />
+                    <input type={passwordType} css={textInputStyle(theme)} name={name} value={inputValue} onChange={(e) => handleChange(e)} />
                     <button onMouseDown={() => setPasswordType("text")} onMouseUp={() => setPasswordType("password")} style={{ width: "16px", height: "16px", border: "none", outline: "none", background: "none" }}>
                         <Icon type="eye" />
                     </button>
@@ -78,13 +87,16 @@ const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
             return (
                 <div css={style(width, theme)}>
                     <Icon type="magnifyingGlass" />
-                    <input css={textInputStyle(theme)} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name}></input>
+                    <input css={textInputStyle(theme)} style={{ paddingLeft: "16px" }} placeholder="Search..." type="text" name={name} value={inputValue} onChange={(e) => handleChange(e)} />
                 </div>
             )
         case "inputWithSteper":
             return (
                 <div css={style(width="80px", theme)}>
-                    <div css={textInputStyle(theme)}>{stepNumber}</div>
+                    <input css={textInputStyle(theme)} name={name} value={stepNumber} onChange={(e: any) => {
+                        setStepNumber(e.target.value);
+                        onChange(e);
+                    }} />
                     <div className='steperwrapper' css={steperWrapperStyle(theme)}>
                         <button onClick={() => setStepNumber(prev => prev + 1)}>
                             <Icon type="angleUp" />
@@ -98,7 +110,7 @@ const Input = ({ themeType, type, width, icon, name, height }: InputProps) => {
         case "textAreaInput":
             return (
                 <div css={textAreaStyle(width, theme)}>
-                    <textarea css={textAreaInputStyle(height!, theme)} placeholder="Input Text" name={name}></textarea>
+                    <textarea css={textAreaInputStyle(height!, theme)} placeholder="Input Text" name={name} value={inputValue} onChange={(e) => handleChange(e)}  />
                 </div>
             )
         default:
@@ -110,6 +122,11 @@ Input.defaultProps = {
     themeType: "lightMode",
     width: "300px",
     height: "300px",
+    type: "textInput",
+    value: "",
+    numberValue: 0,
+    onChange: (e) => console.log(e.target.value),
+    name: "text",
 }
 
 const style = (width: string, theme: Theme) => css`

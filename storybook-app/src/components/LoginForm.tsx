@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import { useState } from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import Input from './Input';
@@ -11,6 +11,21 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ width }: LoginFormProps) => {
+    const initialForm = {
+        id: "",
+        name: "",
+        password: "",
+        phoneNumber: "",
+        skills: [],
+        introduce: "",
+    }
+
+    const [userInfoForm, setUserInfoForm] = useState<typeof initialForm>(initialForm);
+    const { id, name, password, phoneNumber, skills, introduce } = userInfoForm;
+    const handleChange = (e: any) => {
+        setUserInfoForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+
     return (
         <div className='formWrapper' css={style(width)}>
             <div className='idInput' css={idInputStyle()}>
@@ -18,7 +33,7 @@ const LoginForm = ({ width }: LoginFormProps) => {
                     ID<span style={{ color: BaseStyles.Color.Orange2 }}>*</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Input type="textInput" width="300px" name="id" />
+                    <Input type="textInput" width="300px" name="id" value={id} onChange={(e) => handleChange(e)} />
                     <div style={{ marginLeft: "20px" }}>
                         <Button onClick={() => console.log("Submit!")} height="40px" innerText="Valiable?" theme="link" />
                     </div>
@@ -29,7 +44,7 @@ const LoginForm = ({ width }: LoginFormProps) => {
                     Full name<span style={{ color: BaseStyles.Color.Orange2 }}>*</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Input type="textInput" width="300px" name="name" />
+                    <Input type="textInput" width="300px" name="name" value={name} onChange={(e) => handleChange(e)} />
                 </div>
             </div>
             <div className='passwordInput' css={idInputStyle()}>
@@ -37,7 +52,7 @@ const LoginForm = ({ width }: LoginFormProps) => {
                     Password<span style={{ color: BaseStyles.Color.Orange2 }}>*</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Input type="password" width="300px" name="password" />
+                    <Input type="password" width="300px" name="password" value={password} onChange={(e) => handleChange(e)} />
                 </div>
             </div>
             <div className='emailInput' css={idInputStyle()}>
@@ -45,7 +60,7 @@ const LoginForm = ({ width }: LoginFormProps) => {
                     E-mail<span style={{ color: BaseStyles.Color.Orange2 }}>*</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Input type="textInput" width="300px" name="id" />
+                    <Input type="textInput" width="300px" name="id" value={id} onChange={(e) => handleChange(e)} />
                     <div style={{ marginLeft: "20px" }}>
                         <Button onClick={() => console.log("Submit!")} height="40px" innerText="Submit" theme="link" />
                     </div>
@@ -56,7 +71,7 @@ const LoginForm = ({ width }: LoginFormProps) => {
                     Phone number
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Input type="phoneNumber" width="300px" name="phoneNumber" />
+                    <Input type="phoneNumber" width="300px" name="phoneNumber" value={phoneNumber} onChange={(e) => handleChange(e)} />
                 </div>
             </div>
             <div style={{ width: "100%", height: "0.3px", background: BaseStyles.Color.Black2, marginBottom: "40px" }}></div>
@@ -72,10 +87,10 @@ const LoginForm = ({ width }: LoginFormProps) => {
                 <div style={{ marginBottom: "10px", fontFamily: BaseStyles.Font.FiraCode, fontSize: BaseStyles.Text.Heading3, fontWeight: BaseStyles.Text.Border0 }}>
                     Introduce yourself
                 </div>
-                <Input type="textAreaInput" width="100%" name="Introduce" />
+                <Input type="textAreaInput" width="100%" name="Introduce" value={introduce} onChange={(e) => handleChange(e)} />
             </div>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <Button onClick={() => console.log("Submit!")} height="40px" width="60%" innerText="Submit" theme="delete" />
+                <Button onClick={() => console.log(userInfoForm)} height="40px" width="60%" innerText="Submit" theme="delete" />
             </div>
         </div>
     )

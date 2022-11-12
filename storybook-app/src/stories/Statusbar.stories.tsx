@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Statusbar from "./Statusbar";
+import Statusbar from "../components/Statusbar";
 
 export default {
     title: 'Components/Statusbar',

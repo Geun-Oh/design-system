@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Input from "./Input";
+import Input from "../components/Input";
 
 export default {
     title: 'Components/Input',
@@ -13,7 +13,7 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const TextInput = Template.bind({});
-TextInput.args = { type: "textInput", width: "300px" };
+TextInput.args = { type: "textInput", width: "300px", onChange: (e) => console.log(e.target.value) };
 
 export const Date = Template.bind({});
 Date.args = { type: "date", width: "300px" };
