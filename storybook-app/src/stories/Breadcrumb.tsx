@@ -8,7 +8,7 @@ interface BreadcrumbProps {
     params: string[];
 }
 
-export const Breadcrumb = ({ params }: BreadcrumbProps) => {
+const Breadcrumb = ({ params }: BreadcrumbProps) => {
     return (
         <div css={style(params)}>
             {paramElement(params)}
@@ -49,3 +49,5 @@ const style = (params: string[]) => css`
     justify-content: flex-start;
     align-items: center;
 `
+
+export default Breadcrumb;

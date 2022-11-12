@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
-import { jsx, css } from '@emotion/react';
+import { useState } from 'react';
+import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Icon } from "./Icon";
 
@@ -15,11 +15,11 @@ interface DropdownProps {
     multiSelect: boolean;
 }
 
-export const Dropdown = ({ options, width, disabled, multiSelect }: DropdownProps) => {
-    const [selected, setSelected] = React.useState<string>("");
-    const [multiSelected, setMultiSelected] = React.useState<string[]>([]);
-    const [multiOptions, setMultiOptions] = React.useState<string[]>(options);
-    const [toggled, setToggled] = React.useState<boolean>(false);
+const Dropdown = ({ options, width, disabled, multiSelect }: DropdownProps) => {
+    const [selected, setSelected] = useState<string>("");
+    const [multiSelected, setMultiSelected] = useState<string[]>([]);
+    const [multiOptions, setMultiOptions] = useState<string[]>(options);
+    const [toggled, setToggled] = useState<boolean>(false);
 
     const onClick = () => disabled ? null : setToggled(prev => !prev);
     const angle = disabled ? "xmark" : toggled ? "angleLeft" : "angleDown";
@@ -175,3 +175,5 @@ Dropdown.defaultProps = {
     width: "300px",
     multiSelect: false,
 }
+
+export default Dropdown;

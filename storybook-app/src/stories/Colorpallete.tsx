@@ -8,7 +8,7 @@ import { BaseStyles } from "../themes";
  */
 
 
-export const Colorpallete = () => {
+const Colorpallete = () => {
     const color: { [key: string]: any } = BaseStyles.Color;
     return (
         <div>
@@ -25,3 +25,5 @@ export const Colorpallete = () => {
         </div>
     )
 }
+
+export default Colorpallete;

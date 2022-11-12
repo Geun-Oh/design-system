@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles, Themes, ThemeType } from "../themes";
 import { Icon, IconProps } from "./Icon";
-import { Button } from "./Button";
+import Button from "./Button";
 import image1 from "../icons/image1.png";
 
 interface CardProps {
@@ -31,7 +31,7 @@ type Unit = "px" | "vh" | "vw" | "%";
 /**
  * 다양한 옵션을 잘 선택해서 사용해주세요!
  */
-export const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
+const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
     const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
     let height: string;
     let unit: Unit;
@@ -133,3 +133,5 @@ const imgStyle = (width: string, height: string, unit: Unit, imgUrl: string) => 
         background: ${BaseStyles.Color.Beige1};
     }
 `
+
+export default Card;

@@ -29,7 +29,7 @@ interface ButtonProps {
 /**
  * 기본 타입을 선택해 사용하거나 직접 커스텀할 수 있습니다.
  */
-export const Button = ({ onClick, innerText, width, height, theme, iconType, backgroundColor, color, hoverColor }: ButtonProps) => {
+const Button = ({ onClick, innerText, width, height, theme, iconType, backgroundColor, color, hoverColor }: ButtonProps) => {
   return (
     <button css={[style(width!, height!, backgroundColor!, color!, hoverColor!), themes[theme!]]} onClick={onClick}>
       {innerText}
@@ -144,3 +144,5 @@ const themes = {
   }
   `
 };
+
+export default Button;
