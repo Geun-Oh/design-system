@@ -3,8 +3,8 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import { Input } from './Input';
-import { Button } from './Button';
-import { Dropdown } from './Dropdown';
+import Button from './Button';
+import Dropdown from './Dropdown';
 
 interface LoginFormProps {
     width: string;
