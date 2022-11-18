@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import Input from './Input';
 import Button from './Button';
-import Dropdown from './Dropdown';
+import Dropdown from './DropDown';
 
 interface LoginFormProps {
     width: string;

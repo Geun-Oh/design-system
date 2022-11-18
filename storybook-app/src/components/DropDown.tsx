@@ -5,7 +5,7 @@ import { BaseStyles } from "../themes";
 import Icon from "./Icon";
 import MarginBox from './Marginbox';
 
-interface DropdownProps {
+interface DropDownProps {
     /**드롭다운의 선택 옵션을 입력해주세요. 배열을 받습니다. */
     options: string[];
     /**드롭다운의 너비를 지정해주세요. "100px", "50vw"와 같이 단위를 포함한 string으로 입력해야합니다.  */
@@ -18,7 +18,7 @@ interface DropdownProps {
     onChange: (e: any) => any;
 }
 
-const Dropdown = ({ options, width, disabled, multiSelect, onChange }: DropdownProps) => {
+const DropDown = ({ options, width, disabled, multiSelect, onChange }: DropDownProps) => {
     const [selected, setSelected] = useState<string>("");
     const [multiSelected, setMultiSelected] = useState<string[]>([]);
     const [multiOptions, setMultiOptions] = useState<string[]>(options);
@@ -89,7 +89,7 @@ const Dropdown = ({ options, width, disabled, multiSelect, onChange }: DropdownP
     }
 }
 
-Dropdown.defaultProps = {
+DropDown.defaultProps = {
     options: ["React.js", "Vue.js", "Angular.js"],
     disabled: false,
     width: "300px",
@@ -195,4 +195,4 @@ const multiOptionStyle = () => css`
     }
 `
 
-export default Dropdown;
+export default DropDown;

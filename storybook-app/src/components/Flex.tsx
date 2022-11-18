@@ -18,7 +18,7 @@ interface FlexProps {
     overflowX?: "visible" | "hidden" | "auto" | "scroll" | "clip";
 }
 
-export const Flex = ({ flexDirection, justifyContent, alignItems, width, height, flexWrap, children, flex, overflow, overflowX }: FlexProps) => {
+const Flex = ({ flexDirection, justifyContent, alignItems, width, height, flexWrap, children, flex, overflow, overflowX }: FlexProps) => {
     return (
         <div css={FlexDiv} style={{ display: "flex", flexDirection, justifyContent, alignItems, width: width ?? "100%", height, flexWrap, flex, overflow: overflow ?? "hidden", overflowX }}>
             {children}
@@ -31,3 +31,5 @@ const FlexDiv = css`
     display: none; 
 }
 `
+
+export default Flex;
