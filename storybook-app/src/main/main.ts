@@ -15,3 +15,25 @@ import MarginBox from '../components/Marginbox';
 import Statusbar from '../components/Statusbar';
 import Text from '../components/Text';
 import Toggle from '../components/Toggle';
+
+const Components = {
+    Badge,
+    Box,
+    Breadcrumb,
+    Button,
+    Card,
+    Checkbox,
+    Colorpallete,
+    DropDown,
+    Flex,
+    header,
+    Icon,
+    Input,
+    LoginForm,
+    MarginBox,
+    Statusbar,
+    Text,
+    Toggle,
+}
+
+export default Components;
