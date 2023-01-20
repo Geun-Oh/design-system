@@ -1,33 +1,33 @@
 import React, { createContext, ReducerAction, useContext, useReducer, useState } from 'react';
 
 export const SelectContext = createContext({
-    listData: [] as Array<unknown>,
-    selectedData: undefined as unknown,
-    searchedList: [] as Array<unknown>,
+    listData: [] as any,
+    selectedData: undefined as any,
+    searchedList: [] as Array<any>,
     setListData: (e: any) => { },
     setSelectedData: (e: any) => { },
     setSearchedList: (e: any) => { },
-    defaultValue: undefined as unknown,
+    defaultValue: undefined as any,
     setIsOpen: (e: boolean) => { }
 })
 
 SelectContext.displayName = 'SelectContext'
 
-export const useDropdown = () => {
+export const useSelect = () => {
     const context = useContext(SelectContext)
 
     if (context === undefined) {
-        throw new Error("useDropdown must be used within a <Dropdown />")
+        throw new Error("useSelect must be used within a <Select />")
     }
     return context
 }
 
-interface ActionType<V> {
+interface ActionType {
     type: string;
-    value: V;
+    value: string;
 }
 
-const reducer = (state: string, action: ActionType<string>): string | string[] => {
+const reducer = (state: string[], action: ActionType): string[] => {
     switch (action.type) {
         case "ADD":
             return [ ...state, action.value ];
@@ -38,10 +38,10 @@ const reducer = (state: string, action: ActionType<string>): string | string[] =
 
 export const SelectProvider = ({ children, values }) => {
     // 23.01.19 reducer 타입 확실히 확인하고 수정하기!!
-    const [state, dispatch] = useReducer<>(reducer, []);
+    const [state, dispatch] = useReducer(reducer, []);
 
     return (
-        <SelectContext.Provider value={{ ...values }}>
+        <SelectContext.Provider value={{ ...values, listData: state, setListData: (value: string) => dispatch({ type: "ADD", value }) }}>
             {children}
         </SelectContext.Provider>
     )
