@@ -1,15 +1,22 @@
-import React, { createContext, ReducerAction, useContext, useReducer, useState } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
-export const SelectContext = createContext({
-    listData: [] as any,
-    selectedData: undefined as any,
-    searchedList: [] as Array<any>,
-    setListData: (e: any) => { },
-    setSelectedData: (e: any) => { },
-    setSearchedList: (e: any) => { },
-    defaultValue: undefined as any,
-    setIsOpen: (e: boolean) => { }
-})
+interface IContext {
+    options: string[],
+    search: string,
+    selected: string,
+    toggled: boolean,
+    next: (e: any) => any
+}
+
+const initialContext: IContext = {
+    options: [],
+    search: "",
+    selected: "",
+    toggled: false,
+    next: (e: any) => {}
+}
+
+export const SelectContext = createContext(initialContext)
 
 SelectContext.displayName = 'SelectContext'
 
@@ -22,26 +29,37 @@ export const useSelect = () => {
     return context
 }
 
-interface ActionType {
-    type: string;
-    value: string;
+type ActionType = {
+    type: "ADD",
+    value: string
+} | {
+    type: "SETNEXT",
+    value: (e: any) => any
 }
 
-const reducer = (state: string[], action: ActionType): string[] => {
+const reducer = (state: IContext, action: ActionType): IContext => {
     switch (action.type) {
         case "ADD":
-            return [ ...state, action.value ];
+            return {
+                ...state,
+                options: state.options.concat(action.value)
+            };
+        case "SETNEXT":
+            return {
+                ...state,
+                next: action.value
+            };
         default:
             return state;
     }
 }
 
-export const SelectProvider = ({ children, values }) => {
-    // 23.01.19 reducer 타입 확실히 확인하고 수정하기!!
-    const [state, dispatch] = useReducer(reducer, []);
+export const SelectProvider = ({ children, value }) => {
+    const [state, dispatch] = useReducer(reducer, initialContext);
 
     return (
-        <SelectContext.Provider value={{ ...values, listData: state, setListData: (value: string) => dispatch({ type: "ADD", value }) }}>
+        // 23.01.21 ㅜㅜ 아직 구조가 정확히 파악이 안 된다. 일단 밖에서 가져올 value로는 options와 next 함수가 있는데 둘 다 설정을 할 때 dispatch를 사용해야하는 것 같다. 그러면 value에서 options: state는 왜 해주는 거지?
+        <SelectContext.Provider value={{ ...value, options: state,  }}> 
             {children}
         </SelectContext.Provider>
     )
