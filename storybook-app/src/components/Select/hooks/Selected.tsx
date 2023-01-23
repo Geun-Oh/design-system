@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelect } from './Select';
+import SelectedArea from '../ui/SelectedArea';
+import { useSelect } from './SelectMain';
 
 export const Selected = () => {
     const { next, selected } = useSelect();
@@ -8,9 +9,5 @@ export const Selected = () => {
         next(selected);
     }, [selected]);
 
-    return (
-        <div>
-            <span>{selected || "defaultValue"}</span>
-        </div>
-    );
+    return <SelectedArea innerText={selected || "defaultValue"} />
 };

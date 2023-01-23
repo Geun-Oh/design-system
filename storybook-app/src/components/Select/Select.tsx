@@ -1,21 +1,18 @@
 import React from 'react';
-import { SelectMain } from "./hooks/Select";
-import { Selected } from "./hooks/Selected";
-import { SelectOption } from "./hooks/SelectOption";
+import MarginBox from '../Marginbox';
+import Select from './index';
 
-const Select = Object.assign(SelectMain, {
-    Option: SelectOption,
-    SelectedArea: Selected
-});
+const SelectEx = () => {
+    const nextfc = (value: string) => console.log(value)
 
-const NewSelect = () => {
     return (
-        <Select next={(value: any) => console.log(value)}>
+        <Select next={nextfc}>
             <Select.SelectedArea />
+            <MarginBox marginBottom='0.5rem' />
             <Select.Option>Option 1</Select.Option>
             <Select.Option>Option 2</Select.Option>
         </Select>
     )
 }
 
-export default NewSelect;
+export default SelectEx;

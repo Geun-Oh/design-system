@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelect } from "./Select"
+import SelectedArea from '../ui/SelectedArea';
+import { useSelect } from "./SelectMain"
 
 export const SelectOption = ({ children }: { children: string }) => {
     const { setOptions, setSelected } = useSelect();
@@ -7,8 +8,8 @@ export const SelectOption = ({ children }: { children: string }) => {
         setOptions(children);
     }, [])
     return (
-        <div onClick={() => setSelected(children)} style={{ backgroundColor: "red" }}>
-            <span>{children}</span>
+        <div onClick={() => setSelected(children)}>
+            <SelectedArea innerText={children}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 interface IContext {
     options?: string[],
@@ -82,7 +82,7 @@ export const SelectMain = ({ children, next }) => {
     const [state, dispatch] = useReducer(reducer, initialContext);
     return (
         // 23.01.21 ㅜㅜ 아직 구조가 정확히 파악이 안 된다. 일단 밖에서 가져올 value로는 options와 next 함수가 있는데 둘 다 설정을 할 때 dispatch를 사용해야하는 것 같다. 그러면 value에서 options: state는 왜 해주는 거지?
-        <SelectContext.Provider value={{ next, setOptions: (value: string) => dispatch(({ type: "ADD", value })), setSearch: (value: string) => dispatch({ type: "SETSEARCH", value }), setSelected: (value: string) => dispatch({ type: "SETSELECTED", value }), setToggled: () => dispatch({ type: "SETBOOLEAN" }) }}>
+        <SelectContext.Provider value={{ ...state, next, setOptions: (value: string) => dispatch(({ type: "ADD", value })), setSearch: (value: string) => dispatch({ type: "SETSEARCH", value }), setSelected: (value: string) => dispatch({ type: "SETSELECTED", value }), setToggled: () => dispatch({ type: "SETBOOLEAN" }) }}>
             {children}
         </SelectContext.Provider>
     );
