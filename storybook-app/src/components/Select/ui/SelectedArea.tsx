@@ -3,12 +3,13 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from '../../../themes';
 import Text from '../../Text';
+import Box from '../../Box';
 
 const SelectedArea = ({ innerText }) => {
     return (
-        <div css={style}>
+        <Box width='300px' backgroundColor="white" height='32px'>
             <Text innerText={innerText} />
-        </div>
+        </Box>
     )
 }
 

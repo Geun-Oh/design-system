@@ -28,6 +28,7 @@ const textStyle = ({ color, fontSize, fontWeight, textAlign, hoverColor }: TextP
 color: ${color || 'black'};
 cursor: pointer;
 line-height: 1.5;
+vertical-align: middle;
 font-size: ${fontSize || BaseStyles.Text.Heading3};
 font-weight: ${fontWeight || BaseStyles.Text.Border3};
 font-family: ${BaseStyles.Font.Inter};
