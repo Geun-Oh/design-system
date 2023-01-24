@@ -11,8 +11,8 @@ export const Selected = () => {
 
     return (
         <div onClick={() => {
-            setToggled()
-            console.log(toggled)
+            setToggled();
+            console.log(toggled);
         }}>
             <SelectedArea innerText={selected || "defaultValue"} />
         </div>

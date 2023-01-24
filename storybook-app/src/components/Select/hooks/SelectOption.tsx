@@ -11,9 +11,9 @@ export const SelectOption = ({ children }: { children: string }) => {
 
     return (
         <div onClick={() => {
-            setSelected(children)
-            setToggled()
-            console.log(toggled)
+            setSelected(children);
+            setToggled();
+            console.log(toggled);
         }}>
             <Text innerText={children} fontSize={BaseStyles.Text.Heading3} />
         </div>
