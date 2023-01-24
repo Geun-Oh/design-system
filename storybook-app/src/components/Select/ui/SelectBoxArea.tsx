@@ -12,9 +12,6 @@ const SelectBoxArea = ({ children }) => {
                 {children}
             </Flex>
         </Box>
-        // <div css={style}>
-
-        // </div>
     )
 }
 

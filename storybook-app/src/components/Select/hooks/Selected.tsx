@@ -3,11 +3,18 @@ import SelectedArea from '../ui/SelectedArea';
 import { useSelect } from './SelectMain';
 
 export const Selected = () => {
-    const { next, selected } = useSelect();
+    const { next, selected, setToggled, toggled } = useSelect();
 
     useEffect(() => {
         next(selected);
     }, [selected]);
 
-    return <SelectedArea innerText={selected || "defaultValue"} />
+    return (
+        <div onClick={() => {
+            setToggled()
+            console.log(toggled)
+        }}>
+            <SelectedArea innerText={selected || "defaultValue"} />
+        </div>
+    )
 };
