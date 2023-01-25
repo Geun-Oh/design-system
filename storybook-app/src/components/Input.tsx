@@ -96,7 +96,7 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
                 <div css={style(width = "80px", theme)}>
                     <input type="number" ref={numberInputRef} readOnly css={textInputStyle(theme)} name={name} value={stepNumber} />
                     <div className='steperwrapper' css={steperWrapperStyle(theme)}>
-                        <button onClick={() => {
+                        <button data-testid='upSteper' onClick={() => {
                             setStepNumber(prev => prev + 1);
                             if(numberInputRef.current) {
                                 onChange(numberInputRef.current);
@@ -104,7 +104,7 @@ const Input = ({ themeType, type, width, icon, name, value, numberValue, height,
                         }}>
                             <Icon type="angleUp" />
                         </button>
-                        <button onClick={() => {
+                        <button data-testid='downSteper' onClick={() => {
                             setStepNumber(prev => prev - 1);
                             if(numberInputRef.current) {
                                 onChange(numberInputRef.current);

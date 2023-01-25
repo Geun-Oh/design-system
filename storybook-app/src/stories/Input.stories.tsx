@@ -1,5 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { expect } from '@storybook/jest';
+import { waitFor, userEvent, within } from '@storybook/testing-library';
 import Input from "../components/Input";
 
 export default {
@@ -29,6 +31,20 @@ SearchField.args = { type: "searchField", width: "300px", onChange: (v) => conso
 
 export const InputWithSteper = Template.bind({});
 InputWithSteper.args = { type: "inputWithSteper", width: "300px", onChange: (v) => console.log(v.value) };
+
+InputWithSteper.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await waitFor(async () => {
+        expect(await canvas.findByText(0)).toBeInTheDocument();
+    });
+
+    const getUpTask = await canvas.findByTestId('upSteper');
+    userEvent.click(getUpTask);
+
+    await waitFor(async () => {
+        expect(await canvas.findByText('1')).toBeInTheDocument();
+    })
+};
 
 export const TextAreaInput = Template.bind({});
 TextAreaInput.args = { type: "textAreaInput", width: "300px", onChange: (v) => console.log(v.value) };
