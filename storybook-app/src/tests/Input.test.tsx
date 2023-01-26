@@ -2,7 +2,7 @@ import React from 'react';
 import * as stories from '../stories/Input.stories';
 import { render, screen } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
-import context from 'jest-plugin-context';
+import context from 'jest-plugin-context'; // 요건 어케 해결하나...
 import userEvent from '@testing-library/user-event';
 
 const { TextInput, InputWithSteper } = composeStories(stories);
@@ -44,3 +44,8 @@ describe('Steper operating test', () => {
         });
     })
 })
+
+// 참고 사이트
+// https://bobbyhadz.com/blog/typescript-cannot-find-name-describe
+// https://www.npmjs.com/package/jest-plugin-context
+// https://testing-library.com/docs/queries/bydisplayvalue
