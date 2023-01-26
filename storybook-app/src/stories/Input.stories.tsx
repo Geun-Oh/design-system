@@ -35,15 +35,22 @@ InputWithSteper.args = { type: "inputWithSteper", width: "300px", onChange: (v) 
 InputWithSteper.play = async({ canvasElement }) => {
     const canvas = within(canvasElement);
     await waitFor(async () => {
-        expect(await canvas.findByText(0)).toBeInTheDocument();
+        expect(await canvas.findByDisplayValue('0')).toBeInTheDocument();
     });
 
     const getUpTask = await canvas.findByTestId('upSteper');
     userEvent.click(getUpTask);
 
     await waitFor(async () => {
-        expect(await canvas.findByText('1')).toBeInTheDocument();
-    })
+        expect(await canvas.findByDisplayValue('1')).toBeInTheDocument();
+    });
+
+    const getDownTask = await canvas.findByTestId('downSteper');
+    userEvent.click(getDownTask);
+
+    await waitFor(async () => {
+        expect(await canvas.findByDisplayValue('0')).toBeInTheDocument();
+    });
 };
 
 export const TextAreaInput = Template.bind({});
