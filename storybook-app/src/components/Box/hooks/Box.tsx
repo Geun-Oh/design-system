@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles } from "../../../themes";
 
 interface BoxProps {
     /**박스의 넓이를 지정해주세요. 기본값은 100%입니다. */
@@ -16,7 +16,7 @@ interface BoxProps {
     height?: string;
 }
 
-const Box = ({
+const DefaultBox = ({
     width,
     borderRadius,
     backgroundColor,
@@ -56,4 +56,4 @@ const style = ({ width, height, backgroundColor, borderRadius }: BoxProps) => cs
     }
 `
 
-export default Box;
+export default DefaultBox;

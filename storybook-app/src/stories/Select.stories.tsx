@@ -2,17 +2,17 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { waitFor, userEvent, within } from '@storybook/testing-library';
-import NewSelect from "../components/Select/Select";
+import Select from "../components/Select/Select";
 
 export default {
-    title: 'Components/NewSelect',
-    component: NewSelect,
+    title: 'Components/Select',
+    component: Select,
     parameters: {
         componentSubtitle: "새로운 셀렉트 박스입니다."
     }
-} as ComponentMeta<typeof NewSelect>;
+} as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof NewSelect> = () => <NewSelect />;
+const Template: ComponentStory<typeof Select> = () => <Select />;
 
 export const Default = Template.bind({});
 

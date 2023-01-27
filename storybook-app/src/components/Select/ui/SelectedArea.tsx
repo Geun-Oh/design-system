@@ -1,40 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { css } from '@emotion/react';
 import { BaseStyles } from '../../../themes';
 import Text from '../../Text';
-import Box from '../../Box';
+import Box from '../../Box/index';
+import MarginBox from '../../Marginbox';
 
 const SelectedArea = ({ innerText }) => {
     return (
-        <Box width='300px' backgroundColor="white" height='32px'>
+        <Box.CanHover hoverColor={BaseStyles.Color.Beige2} width='300px' backgroundColor="white" height='1rem'>
+            <MarginBox marginTop='0.5rem' />
             <Text innerText={innerText} />
-        </Box>
+        </Box.CanHover>
     )
 }
-
-export const style = css`
-    box-shadow: ${BaseStyles.Shadow.BottomDefault};
-    transition-duration: 0.5s;
-    border: none;
-    width: 300px;
-    max-height: 100px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 0.5rem 1.5rem;
-    border-radius: 1rem;
-    display: flex;
-    ::-webkit-scrollbar-track {
-        background-color: none;
-    }
-    ::-webkit-scrollbar {
-        width: 6px;               /* width of the entire scrollbar */
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: lightgray;    /* color of the scroll thumb */
-        border-radius: 20px;       /* roundness of the scroll thumb */
-        border: none;  /* creates padding around scroll thumb */
-    }
-`
 
 export default SelectedArea;

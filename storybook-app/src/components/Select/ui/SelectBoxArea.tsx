@@ -3,15 +3,15 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from '../../../themes';
 import Box from '../../Box';
-import Flex from '../../Flex';
+import Flex from '../../Flex/Flex';
 
 const SelectBoxArea = ({ children }) => {
     return (
-        <Box backgroundColor='white' width="300px">
+        <Box.CanHover hoverColor={BaseStyles.Color.Beige2} backgroundColor='white' width="300px">
             <Flex flexDirection='column'>
                 {children}
             </Flex>
-        </Box>
+        </Box.CanHover>
     )
 }
 
