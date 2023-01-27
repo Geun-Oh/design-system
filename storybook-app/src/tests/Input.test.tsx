@@ -2,6 +2,7 @@ import React from 'react';
 import * as stories from '../stories/Input.stories';
 import { render, screen } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
+// @ts-ignore
 import context from 'jest-plugin-context'; // 요건 어케 해결하나...
 import userEvent from '@testing-library/user-event';
 

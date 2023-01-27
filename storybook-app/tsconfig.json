@@ -15,12 +15,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@emotion/react/types/css-prop", "@types/jest", "jest", "@types/jest-plugin-context"]
+    "types": ["@emotion/react/types/css-prop", "@types/jest", "jest"]
   },
   "include": [
     "src/*",
     "**/*.spec.ts",
     "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.test.tsx",
     "src/tests/Input.test.tsx"
   ]
 }
