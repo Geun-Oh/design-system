@@ -24,7 +24,7 @@ const DefaultBox = ({
     height,
 }: BoxProps) => {
     return (
-        <div css={style({ width, height, backgroundColor, borderRadius })}>
+        <div data-testid="DefaultBox" css={style({ width, height, backgroundColor, borderRadius })}>
             {children}
         </div>
     )

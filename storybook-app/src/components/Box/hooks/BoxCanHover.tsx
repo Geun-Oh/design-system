@@ -26,7 +26,7 @@ const BoxCanHover = ({
     hoverColor = ""
 }: BoxCanHoverProps) => {
     return (
-        <div css={style({ width, height, backgroundColor, borderRadius, hoverColor })}>
+        <div data-testid="BoxCanHover" css={style({ width, height, backgroundColor, borderRadius, hoverColor })}>
             {children}
         </div>
     )
@@ -37,7 +37,7 @@ const style = ({ width, height, backgroundColor, borderRadius, hoverColor }: Box
     height: ${height};
     background-color: ${backgroundColor || BaseStyles.Color.Black4};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
-    border: ${hoverColor !== "" ? `0.3px solid ${BaseStyles.Color.Black0}` : "none"};
+    border: ${`0.3px solid ${BaseStyles.Color.Black0}`};
     transition-duration: 0.5s;
     display: flex;
     flex-direction: row;

@@ -10,6 +10,8 @@ export default {
   }
 } as ComponentMeta<typeof Box>;
 
-const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
+const DefaultBox: ComponentStory<typeof Box> = (args) => <Box {...args} />;
+const CanHoverBox: ComponentStory<typeof Box.CanHover> = (args) => <Box.CanHover {...args} />;
 
-export const Default = Template.bind({});
+export const Default = DefaultBox.bind({});
+export const CanHover = CanHoverBox.bind({});

@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@emotion/jest": "^11.10.5",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",

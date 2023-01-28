@@ -31,6 +31,7 @@ describe('Steper operating test', () => {
         it('Number should be 1', async () => {
             render(<InputWithSteper />);
             const upSteper = await screen.findByTestId('upSteper');
+            
             userEvent.click(upSteper);
             expect(await screen.findByDisplayValue('1')).toBeInTheDocument();
         });
@@ -40,6 +41,7 @@ describe('Steper operating test', () => {
         it('Number should be -1', async () => {
             render(<InputWithSteper />);
             const downSteper = await screen.findByTestId('downSteper');
+            
             userEvent.click(downSteper);
             expect(await screen.findByDisplayValue('-1')).toBeInTheDocument();
         });
