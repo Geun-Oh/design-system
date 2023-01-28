@@ -4,6 +4,7 @@ import { composeStories } from '@storybook/testing-react';
 // @ts-ignore
 import context from 'jest-plugin-context'; // 요건 어케 해결하나...
 import { matchers } from '@emotion/jest'
+import userEvent from '@testing-library/user-event';
 
 // @emotion/jest 내부의 matcher를 연동해주어 emotion으로 작성된 스타일들을 테스트할 수 있도록 하자.
 expect.extend(matchers)
@@ -31,6 +32,6 @@ describe('Box operating test', () => {
             // 따라서 toHaveStyleRule 메서드를 이용하여 내부 style이 잘 작성되어 있는지 확인하는 방식을 사용하였다.
             expect(Box).toHaveStyleRule("border", "0.3px solid #DDDDDD");
             expect(Box).toHaveStyleRule("border", "1px solid #000000", { target: ":hover" });
-        })
-    })
+        });
+    });
 });

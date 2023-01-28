@@ -45,8 +45,8 @@ describe('Steper operating test', () => {
             userEvent.click(downSteper);
             expect(await screen.findByDisplayValue('-1')).toBeInTheDocument();
         });
-    })
-})
+    });
+});
 
 // 참고 사이트
 // https://bobbyhadz.com/blog/typescript-cannot-find-name-describe
