@@ -28,7 +28,7 @@ interface InputProps {
 
 
 const Input = ({ themeType, type, width, icon, name, value, numberValue, height, onChange }: InputProps) => {
-    const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
+    const theme = themeType === "LightMode" ? Themes.LightMode : Themes.DarkMode;
     const [passwordType, setPasswordType] = React.useState("password");
     const [inputValue, setInputValue] = React.useState<string>(value!);
     const [stepNumber, setStepNumber] = React.useState<number>(numberValue!);

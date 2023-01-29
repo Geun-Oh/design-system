@@ -6,7 +6,6 @@ import Card from '../components/Card';
 import Checkbox from '../components/Checkbox';
 import Colorpallete from '../components/Colorpallete';
 import DropDown from '../components/DropDown';
-import Flex from '../components/Flex';
 import header from '../components/Header';
 import Icon from '../components/Icon';
 import Input from '../components/Input';
@@ -25,7 +24,6 @@ const Components = {
     Checkbox,
     Colorpallete,
     DropDown,
-    Flex,
     header,
     Icon,
     Input,
@@ -34,6 +32,5 @@ const Components = {
     Statusbar,
     Text,
     Toggle,
-}
-
+};
 export default Components;

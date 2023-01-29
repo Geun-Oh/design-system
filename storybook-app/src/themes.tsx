@@ -54,7 +54,7 @@ export const BaseStyles = {
     }
 }
 
-export type ThemeType = "lightMode" | "darkMode";
+export type ThemeType = "LightMode" | "DarkMode";
 
 export const Themes = {
     LightMode: {

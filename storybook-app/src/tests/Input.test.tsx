@@ -6,10 +6,10 @@ import { composeStories } from '@storybook/testing-react';
 import context from 'jest-plugin-context'; // 요건 어케 해결하나...
 import userEvent from '@testing-library/user-event';
 
-const { TextInput, InputWithSteper } = composeStories(stories);
+const { Text, Stepper } = composeStories(stories);
 
-test('TextInput component rendering test', async () => {
-    render(<TextInput />);
+test('Text component rendering test', async () => {
+    render(<Text />);
     const textElement = await screen.findByPlaceholderText('Input Text');
     expect(textElement).toBeInTheDocument();
 });
@@ -20,16 +20,16 @@ test('TextInput component rendering test', async () => {
 //     expect(steper).toBeInTheDocument();
 // })
 
-describe('Steper operating test', () => {
-    it('<InputWithSteper />', async () => {
-        render(<InputWithSteper />);
+describe('Stepper operating test', () => {
+    it('<Stepper />', async () => {
+        render(<Stepper />);
         const steper = await screen.findByDisplayValue('0');
         expect(steper).toBeInTheDocument();
     });
 
     context('When up steper clicked', () => {
         it('Number should be 1', async () => {
-            render(<InputWithSteper />);
+            render(<Stepper />);
             const upSteper = await screen.findByTestId('upSteper');
             
             userEvent.click(upSteper);
@@ -39,7 +39,7 @@ describe('Steper operating test', () => {
 
     context('When down steper clicked', () => {
         it('Number should be -1', async () => {
-            render(<InputWithSteper />);
+            render(<Stepper />);
             const downSteper = await screen.findByTestId('downSteper');
             
             userEvent.click(downSteper);

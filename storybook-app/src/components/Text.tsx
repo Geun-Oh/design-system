@@ -2,6 +2,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from '../themes';
+import { useTheme } from '../ThemeProvider';
 
 type AlignType = "left" | "center" | "right";
 
@@ -17,9 +18,10 @@ interface TextProps {
 }
 
 const Text = ({ color, fontSize, fontWeight, textAlign, innerText, style, hoverColor, onClick }: TextProps) => {
+
     return (
         <span css={textStyle({ color, fontSize, fontWeight, textAlign, innerText, hoverColor })} style={style} onClick={onClick}>
-            {innerText || '내용을 입력해주세요'}
+            {innerText || "DefaultText"}
         </span>
     );
 };

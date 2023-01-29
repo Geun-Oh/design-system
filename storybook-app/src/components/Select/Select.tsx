@@ -2,7 +2,7 @@ import React from 'react';
 import Select from './index';
 
 const SelectComponenet = () => {
-    const nextfc = (value: string) => console.log(value)
+    const nextfc = (value: string) => console.log(value);
 
     return (
         <Select.Select next={nextfc}>
