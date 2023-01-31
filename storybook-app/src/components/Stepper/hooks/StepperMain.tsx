@@ -11,7 +11,7 @@ interface IContext {
 
 const initialContext: IContext = {
     value: 0,
-    width: "80px",
+    width: "auto",
     next: (e: any) => { },
     setValue: () => { },
     plus: () => { },

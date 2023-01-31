@@ -2,19 +2,26 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { waitFor, userEvent, within } from '@storybook/testing-library';
-import StepperComponent from '../components/Stepper/Stepper';
+import Stepper from '../components/Stepper/index';
 
 export default {
   title: 'Components/Stepper',
-  component: StepperComponent,
+  component: Stepper,
   parameters: {
     componentSubtitle: "Stepper 컴포넌트입니다."
   }
-} as ComponentMeta<typeof StepperComponent>;
+} as ComponentMeta<typeof Stepper>;
 
-const Template: ComponentStory<typeof StepperComponent> = () => <StepperComponent />;
+const Template: ComponentStory<typeof Stepper> = (args) =>     <Stepper {...args}>
+<Stepper.Value />
+<Stepper.UpButton />
+<Stepper.DownButton />
+</Stepper>;
+
+const nextfc = (value: string) => console.log(value);
 
 export const Default = Template.bind({});
+Default.args = { next: nextfc, width: "200px", defaultValue: 2001 };
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);

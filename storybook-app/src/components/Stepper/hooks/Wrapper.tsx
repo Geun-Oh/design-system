@@ -7,7 +7,7 @@ const Wrapper = ({ children }: { children: any }) => {
 
     useEffect(() => {
         setValue();
-    }, [])
+    }, []);
 
     return (
             <WrapperArea width={width!}>
