@@ -5,8 +5,11 @@ import { useTheme } from '../../../ThemeProvider';
 import { style, textInputStyle } from '../style';
 
 interface IText {
+    /**해당 Input 컴포넌트의 name 속성을 지정해주세요. */
     name: string;
+    /**해당 Input 컴포넌트의 value 속성을 지정해주세요. */
     value: string;
+    /**해당 Input 컴포넌트에 변화가 발생했을 때 수행할 함수를 지정해주세요. */
     onChange: (e: any) => any;
 }
 

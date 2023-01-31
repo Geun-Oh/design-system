@@ -4,13 +4,13 @@ import { css } from "@emotion/react";
 type Theme = typeof Themes.LightMode;
 
 export const style = (width: string, callTheme: Theme) => css`
-  width: ${width};
+  width: ${width || "auto"};
   background-color: ${callTheme.BackgroundColor};
   color: ${callTheme.Color};
   box-shadow: ${BaseStyles.Shadow.BottomDefault};
   transition-duration: 0.5s;
   border: 0.3px solid ${BaseStyles.Color.Black0};
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;

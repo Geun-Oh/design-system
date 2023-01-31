@@ -8,7 +8,7 @@ export default {
     title: 'Components/Input',
     component: Input.Text,
     parameters: {
-        componentSubtitle: "인풋 플레이스입니다."
+        componentSubtitle: "인풋 플레이스입니다.",
     }
 } as ComponentMeta<typeof Input.Text>;
 

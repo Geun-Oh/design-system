@@ -32,7 +32,7 @@ type Unit = "px" | "vh" | "vw" | "%";
  * 다양한 옵션을 잘 선택해서 사용해주세요!
  */
 const Card = ({ themeType, head, icon, title, width, detail, confirmButton, image, imgUrl }: CardProps) => {
-    const theme = themeType === "lightMode" ? Themes.LightMode : Themes.DarkMode;
+    const theme = themeType === "LightMode" ? Themes.LightMode : Themes.DarkMode;
     let height: string;
     let unit: Unit;
     if(width.endsWith("px")) {

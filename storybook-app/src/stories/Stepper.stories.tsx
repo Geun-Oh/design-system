@@ -2,26 +2,25 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { waitFor, userEvent, within } from '@storybook/testing-library';
-import Stepper from '../components/Stepper/index';
+import Stepper from '../components/Stepper/Stepper';
 
 export default {
   title: 'Components/Stepper',
   component: Stepper,
   parameters: {
-    componentSubtitle: "Stepper 컴포넌트입니다."
+    componentSubtitle: "Stepper 컴포넌트입니다. 동적 컴포넌트 테스팅을 위해 일부 인자는 변경이 불가합니다.",
+    docs: {
+      description: {
+        component: "***width*** - 너비를 지정해주세요.<br />***next*** - Input의 값이 변경될 때 시행할 함수를 지정합니다. 현재 console.log로 설정되어있습니다.<br />***defaultValue*** - 초기값을 설정합니다. 현재 2001로 설정되어있습니다."
+      }
+    }
   }
 } as ComponentMeta<typeof Stepper>;
 
-const Template: ComponentStory<typeof Stepper> = (args) =>     <Stepper {...args}>
-<Stepper.Value />
-<Stepper.UpButton />
-<Stepper.DownButton />
-</Stepper>;
-
-const nextfc = (value: string) => console.log(value);
+const Template: ComponentStory<typeof Stepper> = (args) => <Stepper {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { next: nextfc, width: "200px", defaultValue: 2001 };
+Default.args = { width: "auto" };
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
