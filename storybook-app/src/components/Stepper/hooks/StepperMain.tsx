@@ -4,6 +4,7 @@ interface IContext {
     value: number;
     width?: string;
     next: (e: any) => any;
+    setValue: () => any;
     plus: () => any;
     minus: () => any;
 };
@@ -12,6 +13,7 @@ const initialContext: IContext = {
     value: 0,
     width: "80px",
     next: (e: any) => { },
+    setValue: () => { },
     plus: () => { },
     minus: () => { },
 };
@@ -33,7 +35,10 @@ type ActionType = {
     type: "PLUS",
 } | {
     type: "MINUS",
-}
+} | {
+    type: "SETVALUE",
+    value: number,
+};
 
 const reducer = (state: IContext, action: ActionType): IContext => {
     switch (action.type) {
@@ -47,15 +52,22 @@ const reducer = (state: IContext, action: ActionType): IContext => {
                 ...state,
                 value: state.value - 1
             };
+        case "SETVALUE":
+            return {
+                ...state,
+                value: action.value
+            };
         default:
             return state;
     };
 };
 
-export const StepperMain = ({ children, value, next, width }: { children: any, value: number, next: (e: any) => any, width?: string }) => {
+export const StepperMain = ({ children, defaultValue, next, width }: { children: any, defaultValue: number, next: (e: any) => any, width?: string }) => {
     const [state, dispatch] = useReducer(reducer, initialContext);
+    // dispatch({ type: "SETVALUE", value: defaultValue }); 여기서 이걸 쓰면 무한루프 에러가 걸린다...
+
     return (
-        <StepperContext.Provider value={{ ...state, value, next, width, plus: () => dispatch({ type: "PLUS" }), minus: () => dispatch({ type: "MINUS" }) }}>
+        <StepperContext.Provider value={{ ...state, next, width, plus: () => dispatch({ type: "PLUS" }), minus: () => dispatch({ type: "MINUS" }), setValue: () => dispatch({ type: "SETVALUE", value: defaultValue }) }}>
             {children}
         </StepperContext.Provider>
     );
