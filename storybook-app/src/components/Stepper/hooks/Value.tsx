@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ValueArea from '../ui/ValueArea';
 import { useStepper } from './StepperMain';
 
 const Value = () => {
     const { value, next } = useStepper();
-
-    useEffect(() => {
-        next(value);
-    }, [value]);
     
     return (
-        <ValueArea value={value} />
+        <ValueArea value={value} onChange={next} />
     );
 };
 

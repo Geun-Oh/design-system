@@ -9,7 +9,7 @@ const WrapperArea = ({ children, width }: { children: any, width: string }) => {
     const callTheme = Themes[theme];
     
     return (
-        <div css={style(width, callTheme)}>
+        <div data-testid="Stepper-Default-Wrapper" css={style(width, callTheme)}>
             {children}
         </div>
     );

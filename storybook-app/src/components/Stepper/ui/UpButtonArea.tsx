@@ -5,7 +5,7 @@ import Icon from "../../Icon";
 
 const UpButton = ({ onClick }: {onClick: (e: any) => any }) => {
     return (
-        <button data-testid='upSteper' css={stepperButtonStyle} onClick={onClick}>
+        <button data-testid='Stepper-Default-UpButton' css={stepperButtonStyle} onClick={onClick}>
             <Icon type="angleUp" />
         </button>
     );
