@@ -33,6 +33,7 @@ export const indicateStyle = ({
   padding: 0 6px 0 6px;
   border-radius: 6px;
   color: white;
+  transform: translate(-12px, -6px);
   font-size: ${BaseStyles.Text.Heading5};
   font-family: ${BaseStyles.Font.FiraCode};
   font-weight: ${BaseStyles.Text.Border0};
