@@ -14,6 +14,7 @@ interface BoxProps {
     children?: JSX.Element | JSX.Element[];
     /**박스의 높이를 지정해주세요. 기본값은 auto입니다. */
     height?: string;
+    extraStyle?: any;
 }
 
 const DefaultBox = ({
@@ -22,9 +23,10 @@ const DefaultBox = ({
     backgroundColor,
     children,
     height,
+    extraStyle
 }: BoxProps) => {
     return (
-        <div data-testid="DefaultBox" css={style({ width, height, backgroundColor, borderRadius })}>
+        <div data-testid="DefaultBox" css={style({ width, height, backgroundColor, borderRadius })} style={extraStyle}>
             {children}
         </div>
     )

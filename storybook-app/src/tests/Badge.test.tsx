@@ -8,7 +8,7 @@ import { matchers } from '@emotion/jest'
 // @emotion/jest 내부의 matcher를 연동해주어 emotion으로 작성된 스타일들을 테스트할 수 있도록 하자.
 expect.extend(matchers);
 
-const { Access, Warning, Error, New, Wait, TextInnerAccess, TextInnerError, TextInnerNew, TextInnerWait, TextInnerWarning, TextOverAccess, TextOverError, TextOverNew, TextOverWait, TextOverWarning } = composeStories(stories);
+const { Access, Warning, Error, New, Wait, TextInnerAccess, TextOverAccess } = composeStories(stories);
 
 describe('Badge operating test', () => {
     test('Default badges', async () => {

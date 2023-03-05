@@ -24,7 +24,7 @@ const Statusbar = ({ innerText, width, extraAction, src, loading }: StatusbarPro
     return (
         <div css={style(width)}>
             <p>{innerText}</p>
-            {src && extraAction ? <a href={src} style={{ textDecoration: "none" }} ><p style={{ color: `${BaseStyles.Color.Orange3}` }}>{extraAction}</p></a> : null}
+            {src && extraAction ? <a href={src} style={{ textDecoration: "none" }}><p style={{ color: `${BaseStyles.Color.Orange3}` }}>{extraAction}</p></a> : null}
                 {loading === true ? <Icon type="loading" scale={1.5} /> : null}
         </div>
     )

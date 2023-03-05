@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { css } from "@emotion/react";
 import Indicate from './Indicate';
+import { css } from "@emotion/react";
+import { ColorType } from '../style';
 
-const BadgeWrapper = ({ children }) => {
+const BadgeWrapper = ({ children, color, innerText }: { children: any, color: ColorType, innerText?: string }) => {
     return (
-        <div css={style}>
-            <Indicate color='Standard' innerText='1' />
+        <div css={style} data-testid="Badge-Wrapper">
+            <Indicate color={color} innerText={innerText} />
             {children}
         </div>
     )
