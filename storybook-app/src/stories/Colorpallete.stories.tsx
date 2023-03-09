@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Colorpallete from "../components/Colorpallete";
+import Colorpallete from "../components/Colorpallete/Colorpallete";
 
 export default {
     title: 'Components/ColorPallete',

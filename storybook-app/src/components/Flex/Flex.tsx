@@ -16,11 +16,12 @@ interface FlexProps {
     children: JSX.Element | JSX.Element[];
     overflow?: string;
     overflowX?: "visible" | "hidden" | "auto" | "scroll" | "clip";
+    gap?: string;
 }
 
-const Flex = ({ flexDirection, justifyContent, alignItems, width, height, flexWrap, children, flex, overflow, overflowX }: FlexProps) => {
+const Flex = ({ flexDirection, justifyContent, alignItems, width, height, flexWrap, children, flex, overflow, overflowX, gap }: FlexProps) => {
     return (
-        <div css={FlexDiv} style={{ display: "flex", flexDirection, justifyContent, alignItems, width: width ?? "100%", height, flexWrap, flex, overflow: overflow ?? "hidden", overflowX }}>
+        <div css={FlexDiv} style={{ display: "flex", flexDirection, justifyContent, alignItems, width: width ?? "100%", height, flexWrap, flex, overflow: overflow ?? "hidden", overflowX, gap }}>
             {children}
         </div>
     )
