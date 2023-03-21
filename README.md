@@ -2,7 +2,7 @@
 
 Developing RESON&CE Design System.
 
-[RESON&CE Storybook](https://bit.ly/3CKjVgt)
+[RESON&CE Storybook](https://bit.ly/3yQzq3l)
 
 Can Install deployed package with 
 
