@@ -7,11 +7,11 @@ import Flex from '../../Flex/Flex';
 
 const SelectBoxArea = ({ children }) => {
     return (
-        <Box.CanHover hoverColor={BaseStyles.Color.Beige2} backgroundColor='white' width="300px">
-            <Flex flexDirection='column'>
-                {children}
-            </Flex>
-        </Box.CanHover>
+            <Box.CanHover hoverColor={BaseStyles.Color.Beige2} backgroundColor='white' width="300px">
+                <Flex flexDirection='column'>
+                    {children}
+                </Flex>
+            </Box.CanHover>
     )
 }
 
@@ -27,6 +27,7 @@ export const style = css`
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    transition-duration: .4s;
     ::-webkit-scrollbar-track {
         background-color: none;
     }
