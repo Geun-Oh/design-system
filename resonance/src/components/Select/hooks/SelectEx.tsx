@@ -4,11 +4,9 @@ import { Selected } from "./Selected";
 import MarginBox from '../../Marginbox';
 import { SelectOptionBox } from './SelectOptionBox';
 
-export const SelectEx = ({ children, ...props }) => {
-    const nextfc = (value: string) => console.log(value);
-
+export const SelectEx = ({ children, next }: { children: React.ReactNode, next: (e: any) => any }) => {
     return (
-        <SelectMain next={nextfc} {...props}>
+        <SelectMain next={next}>
             <Selected />
             <MarginBox marginBottom='0.5rem' />
             <SelectOptionBox>

@@ -17,7 +17,7 @@ const initialContext: IContext = {
     options: [],
     search: "",
     selected: "",
-    toggled: false,
+    toggled: true,
     next: (e: any) => { },
     setOptions: (e: any) => { },
     setSearch: (e: any) => { },
@@ -78,7 +78,7 @@ const reducer = (state: IContext, action: ActionType): IContext => {
     };
 };
 
-export const SelectMain = ({ children, next }) => {
+export const SelectMain = ({ children, next }: { children: React.ReactNode, next: (e: any) => any }) => {
     const [state, dispatch] = useReducer(reducer, initialContext);
     return (
         <SelectContext.Provider value={{ ...state, next, setOptions: (value: string) => dispatch(({ type: "ADD", value })), setSearch: (value: string) => dispatch({ type: "SETSEARCH", value }), setSelected: (value: string) => dispatch({ type: "SETSELECTED", value }), setToggled: () => dispatch({ type: "SETBOOLEAN" }) }}>

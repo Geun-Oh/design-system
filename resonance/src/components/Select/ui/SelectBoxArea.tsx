@@ -5,9 +5,9 @@ import { BaseStyles } from '../../../themes';
 import Box from '../../Box';
 import Flex from '../../Flex/Flex';
 
-const SelectBoxArea = ({ children }) => {
+const SelectBoxArea = ({ children }: { children: React.ReactNode }) => {
     return (
-            <Box.CanHover hoverColor={BaseStyles.Color.Beige2} backgroundColor='white' width="300px">
+            <Box.CanHover data-testid="Select-Default-SelectBoxArea" hoverColor={BaseStyles.Color.Beige2} backgroundColor='white' width="300px">
                 <Flex flexDirection='column'>
                     {children}
                 </Flex>

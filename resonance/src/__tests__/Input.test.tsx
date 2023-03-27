@@ -23,8 +23,8 @@ test('Text component rendering test', async () => {
 describe('Stepper operating test', () => {
     it('<Stepper />', async () => {
         render(<Stepper />);
-        const steper = await screen.findByDisplayValue('0');
-        expect(steper).toBeInTheDocument();
+        const stepper = await screen.findByDisplayValue('0');
+        expect(stepper).toBeInTheDocument();
     });
 
     context('When up steper clicked', () => {

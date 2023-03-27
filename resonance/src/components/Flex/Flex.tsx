@@ -13,7 +13,7 @@ interface FlexProps {
     height?: string;
     flexWrap?: "nowrap" | "wrap" | "wrap-reverse";
     flex?: string;
-    children: JSX.Element | JSX.Element[];
+    children: React.ReactNode;
     overflow?: string;
     overflowX?: "visible" | "hidden" | "auto" | "scroll" | "clip";
     gap?: string;
