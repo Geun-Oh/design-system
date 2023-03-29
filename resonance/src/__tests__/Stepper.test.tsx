@@ -1,5 +1,5 @@
 import * as stories from '../stories/Stepper.stories';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 // @ts-ignore
 import context from 'jest-plugin-context'; // 요건 어케 해결하나...
@@ -44,23 +44,28 @@ describe('Stepper oprating test', () => {
             const UpButton = await screen.findByTestId('Stepper-Default-UpButton');
             const Value = await screen.findByTestId('Stepper-Default-Value');
             
-            // Click event triggered
-            userEvent.click(UpButton);
+            // Click event triggered      
+            await userEvent.click(UpButton); 
 
-            expect(Value).toHaveValue(2002);
+            await waitFor(() => {
+                expect(Value).toHaveValue(2002);
+            })
         });
     });
 
     context('When DownButton clicked', () => {
         it('Value should be 2000', async () => {
             render(<Default />);
+
             const DownButton = await screen.findByTestId('Stepper-Default-DownButton');
             const Value = await screen.findByTestId('Stepper-Default-Value');
-            
-            // Click event triggered
-            userEvent.click(DownButton);
 
-            expect(Value).toHaveValue(2000);
+            // Click event triggered
+            await userEvent.click(DownButton);
+
+            await waitFor(() => {
+                expect(Value).toHaveValue(2000);
+            })
         });
     });
 });
