@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BaseStyles } from '../../../themes';
 import MarginBox from '../../Marginbox';
 import Text from '../../Text';
-import { useSelect } from "./SelectMain"
+import { useSelect } from "../context/Select.reducer"
 
 export const SelectOption = ({ children }: { children: string }) => {
     const { setOptions, setSelected, setToggled, toggled } = useSelect();

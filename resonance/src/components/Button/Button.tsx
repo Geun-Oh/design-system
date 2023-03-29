@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../themes";
-import Icon, { IconProps } from './Icon';
+import { BaseStyles } from "../../themes";
+import Icon, { IconProps } from '../Icon';
 
 type ThemeType = 'none' | 'default' | 'link' | 'warning' | 'delete' | 'disabled' | "submit" | "formSubmit";
 

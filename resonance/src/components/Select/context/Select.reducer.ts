@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext } from 'react';
 
 interface IContext {
     options?: string[],
@@ -13,7 +13,7 @@ interface IContext {
 };
 
 // next는 외부에서 받는 함수. selected가 적용되면 그 selected를 밖으로 보내주는 역할을 한다.
-const initialContext: IContext = {
+export const initialContext: IContext = {
     options: [],
     search: "",
     selected: "",
@@ -51,7 +51,7 @@ type ActionType = {
     type: "SETBOOLEAN"
 };
 
-const reducer = (state: IContext, action: ActionType): IContext => {
+export const reducer = (state: IContext, action: ActionType): IContext => {
     switch (action.type) {
         case "ADD":
             return {
@@ -77,13 +77,3 @@ const reducer = (state: IContext, action: ActionType): IContext => {
             return state;
     };
 };
-
-export const SelectMain = ({ children, next }: { children: React.ReactNode, next: (e: any) => any }) => {
-    const [state, dispatch] = useReducer(reducer, initialContext);
-    return (
-        <SelectContext.Provider value={{ ...state, next, setOptions: (value: string) => dispatch(({ type: "ADD", value })), setSearch: (value: string) => dispatch({ type: "SETSEARCH", value }), setSelected: (value: string) => dispatch({ type: "SETSELECTED", value }), setToggled: () => dispatch({ type: "SETBOOLEAN" }) }}>
-            {children}
-        </SelectContext.Provider>
-    );
-};
-

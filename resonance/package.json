@@ -87,5 +87,10 @@
     "webpack": "^5.74.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "storybook-app@0.1.0"
+  "_id": "storybook-app@0.1.0",
+  "jest": {
+    "moduleNameMapper": {
+      "^@src/(.*)$": "<rootDir>/src/$1"
+    }
+  }
 }

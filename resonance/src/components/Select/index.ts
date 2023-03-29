@@ -1,9 +1,7 @@
-import { SelectEx } from "./hooks/SelectEx";
-import { SelectMain } from "./hooks/SelectMain";
-import { SelectOption } from "./hooks/SelectOption";
+import { SelectWrapper } from "./forms/SelectWrapper";
+import { SelectOption } from "./forms/SelectOption";
 
-const Select = Object.assign(SelectMain, {
-    Select: SelectEx,
+const Select = Object.assign(SelectWrapper, {
     Option: SelectOption,
 });
 

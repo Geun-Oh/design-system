@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles, Themes, ThemeType } from "../themes";
-import Icon, { IconProps } from "./Icon";
-import Button from "./Button";
-import image1 from "../icons/image1.png";
+import { BaseStyles, Themes, ThemeType } from "@src/themes";
+import Icon, { IconProps } from "../Icon";
+import Button from "@src/components/Button/Button";
+import image1 from "@src/icons/image1.png";
 
 interface CardProps {
     /**라이트모드와 다크모드를 선택해주세요. */

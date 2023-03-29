@@ -3,7 +3,7 @@ import Box from '../components/Box';
 import Breadcrumb from '../components/Breadcrumb';
 import Button from '../components/Button';
 import Card from '../components/Card';
-import Checkbox from '../components/Checkbox';
+import Checkbox from '../components/Checkbox/Checkbox';
 import Colorpallete from '../components/Colorpallete';
 import DropDown from '../components/DropDown';
 import header from '../components/Header';
