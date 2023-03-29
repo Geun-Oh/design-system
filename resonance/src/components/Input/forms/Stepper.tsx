@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import React, { useRef } from 'react';
-import { Themes } from "../../../themes";
-import { useTheme } from '../../../ThemeProvider';
+import { Themes } from "@src/styles/themes";
+import { useTheme } from '../../../styles/ThemeProvider';
 import { style, textInputStyle, steperWrapperStyle } from '../style';
-import Icon from "../.././Icon";
+import Icon from "../../Icon";
 
 interface IStepper {
     name: string;

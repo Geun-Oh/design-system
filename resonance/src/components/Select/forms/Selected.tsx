@@ -14,7 +14,7 @@ export const Selected = () => {
             setToggled();
             console.log(toggled);
         }}>
-            <SelectedArea innerText={selected || "defaultValue"} />
+            <SelectedArea data-testid="Select-Wrapper" innerText={selected || "defaultValue"} />
         </div>
     )
 };

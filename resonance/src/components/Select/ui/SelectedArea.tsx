@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { BaseStyles } from '../../../themes';
+import { BaseStyles } from "@src/styles/themes";
 import Text from '../../Text';
 import Box from '../../Box/index';
 import MarginBox from '../../Marginbox';

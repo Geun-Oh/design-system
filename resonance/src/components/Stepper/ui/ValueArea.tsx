@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { textInputStyle } from './style';
-import { Themes } from "../../../themes";
-import { useTheme } from '../../../ThemeProvider';
+import { Themes } from "@src/styles/themes";
+import { useTheme } from '../../../styles/ThemeProvider';
 
 const Value = ({ value, onChange }: { value: number, onChange: (e: any) => any }) => {
     const { theme } = useTheme();

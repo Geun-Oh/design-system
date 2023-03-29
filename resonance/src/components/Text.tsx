@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from '../themes';
-import { useTheme } from '../ThemeProvider';
+import { BaseStyles } from "@src/styles/themes";
+import { useTheme } from '../styles/ThemeProvider';
 
 type AlignType = "left" | "center" | "right";
 

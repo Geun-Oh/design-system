@@ -4,7 +4,7 @@ import Badge from './index';
 import Statusbar from '../Statusbar';
 import Box from '../Box/index';
 import MarginBox from '../Marginbox';
-import { BaseStyles } from '../../themes';
+import { BaseStyles } from "@src/styles/themes";
 
 export const BadgeExample = () => {
     return (

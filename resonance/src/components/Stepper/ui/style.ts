@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { BaseStyles, Themes } from "../../../themes";
+import { BaseStyles, Themes } from "@src/styles/themes";
 import { css } from "@emotion/react";
 type Theme = typeof Themes.LightMode;
 

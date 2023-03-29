@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../../../themes";
+import { BaseStyles } from "@src/styles/themes";
 
 interface BoxProps {
     /**박스의 넓이를 지정해주세요. 기본값은 100%입니다. */
@@ -14,29 +14,31 @@ interface BoxProps {
     children?: JSX.Element | JSX.Element[];
     /**박스의 높이를 지정해주세요. 기본값은 auto입니다. */
     height?: string;
+    extraStyle?: any;
 }
 
-const InlineBox = ({
+const DefaultBox = ({
     width,
     borderRadius,
     backgroundColor,
     children,
     height,
+    extraStyle
 }: BoxProps) => {
     return (
-        <div data-testid="InlineBox" css={style({ width, height, backgroundColor, borderRadius })}>
+        <div data-testid="DefaultBox" css={style({ width, height, backgroundColor, borderRadius })} style={extraStyle}>
             {children}
         </div>
     )
 }
 
 const style = ({ width, height, backgroundColor, borderRadius }: BoxProps) => css`
-    width: auto;
+    width: ${width || "calc(100% - 2rem)"};
     height: ${height};
     background-color: ${backgroundColor || BaseStyles.Color.Black4};
     box-shadow: ${BaseStyles.Shadow.BottomDefault};
     transition-duration: 0.5s;
-    display: inline-block;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -56,4 +58,4 @@ const style = ({ width, height, backgroundColor, borderRadius }: BoxProps) => cs
     }
 `
 
-export default InlineBox;
+export default DefaultBox;

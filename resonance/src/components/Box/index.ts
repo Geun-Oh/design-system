@@ -1,6 +1,6 @@
-import DefaultBox from "./hooks/Box";
-import BoxCanHover from "./hooks/BoxCanHover";
-import InlineBox from "./hooks/InlineBox";
+import DefaultBox from "./forms/Box";
+import BoxCanHover from "./forms/BoxCanHover";
+import InlineBox from "./forms/InlineBox";
 
 const Box = Object.assign(DefaultBox, {
     CanHover: BoxCanHover,

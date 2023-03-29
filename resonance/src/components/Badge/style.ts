@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { BaseStyles } from "../../themes";
+import { BaseStyles } from "@src/styles/themes";
 
 export const ColorTheme = {
   Standard: `${BaseStyles.Color.Beige2}`,

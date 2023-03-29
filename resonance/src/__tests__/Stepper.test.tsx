@@ -28,13 +28,18 @@ describe('Stepper oprating test', () => {
         it('Stepper should be rendered', async () => {
             render(<Default />);
             const Stepper = await screen.findByTestId('Stepper-Default-Wrapper');
-            expect(Stepper).toBeInTheDocument();
+            await waitFor(() => {
+                expect(Stepper).toBeInTheDocument();
+            })
+            
         });
 
         it('InitialValue should be 2001', async () => {
             render(<Default />);
             const StepperValue = await screen.findByDisplayValue(2001);
-            expect(StepperValue).toBeInTheDocument();
+            await waitFor(() => {
+                expect(StepperValue).toBeInTheDocument();
+            })
         });
     });
 

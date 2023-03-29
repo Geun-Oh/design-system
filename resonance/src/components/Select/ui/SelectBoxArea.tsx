@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from '../../../themes';
+import { BaseStyles } from "@src/styles/themes";
 import Box from '../../Box';
 import Flex from '../../Flex/Flex';
 

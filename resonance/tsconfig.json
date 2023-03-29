@@ -29,5 +29,5 @@
     "**/*.spec.tsx",
     "**/*.test.tsx",
     "src/tests/Input.test.tsx"
-, "src/ThemeProvider.tsx"  ]
+, "src/styles/ThemeProvider.tsx"  ]
 }

@@ -1,4 +1,4 @@
-import BadgeWrapper from "./hooks/BadgeWrapper";
+import BadgeWrapper from "./forms/BadgeWrapper";
 
 const Badge = Object.assign(BadgeWrapper, {});
 

@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { style } from './style';
-import { useTheme } from '../../../ThemeProvider';
-import { Themes } from "../../../themes";
+import { useTheme } from '../../../styles/ThemeProvider';
+import { Themes } from "@src/styles/themes";
 
 const WrapperArea = ({ children, width }: { children: any, width: string }) => {  
     const { theme } = useTheme();
