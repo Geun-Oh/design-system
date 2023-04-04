@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles, Themes } from "../themes";
+import { BaseStyles, Themes } from "@src/styles/themes";
 import Icon, { IconProps } from "./Icon";
 // import { useAppDispatch, useAppSelector } from '../store/config';
 // import { setCounter } from '../store/slices/themeSlice';

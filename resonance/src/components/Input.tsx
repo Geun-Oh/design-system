@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React, { useRef } from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles, Themes, ThemeType } from "../themes";
+import { BaseStyles, Themes, ThemeType } from "@src/styles/themes";
 import Icon, { IconProps } from "./Icon";
 
 type InputType = "textInput" | "date" | "phoneNumber" | "password" | "searchField" | "inputWithSteper" | "textAreaInput";

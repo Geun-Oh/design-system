@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles, Themes, ThemeType } from "@src/themes";
+import { BaseStyles, Themes, ThemeType } from "@src/styles/themes";
 import Icon, { IconProps } from "../Icon";
 import Button from "@src/components/Button/Button";
 import image1 from "@src/icons/image1.png";

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles } from "@src/styles/themes";
 
 type ToggleTypes = "Basic" | "DenyAccept";
 

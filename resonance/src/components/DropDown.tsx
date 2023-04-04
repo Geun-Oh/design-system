@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles } from "@src/styles/themes";
 import Icon from "./Icon";
 import MarginBox from './Marginbox/Marginbox';
 

@@ -1,6 +1,15 @@
 interface IBaseStyles {
-    [index: string]: {
+    Color: {
+        [index: string]: string
+    },
+    Text: {
         [index: string]: string | number
+    },
+    Font: {
+        [index: string]: string
+    },
+    Shadow: {
+        [index: string]: string
     }
 }
 

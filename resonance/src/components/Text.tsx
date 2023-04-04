@@ -8,8 +8,8 @@ type AlignType = "left" | "center" | "right";
 
 interface TextProps {
     color?: string;
-    fontSize?: string;
-    fontWeight?: number;
+    fontSize?: string | number;
+    fontWeight?: number | string;
     textAlign?: AlignType;
     innerText?: string;
     hoverColor?: string;

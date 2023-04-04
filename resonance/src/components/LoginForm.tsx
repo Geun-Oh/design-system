@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import { BaseStyles } from "../themes";
+import { BaseStyles } from "@src/styles/themes";
 import Input from './Input';
-import Button from './Button';
+import Button from '@src/components/Button/Button';
 import Dropdown from './DropDown';
 
 interface LoginFormProps {
