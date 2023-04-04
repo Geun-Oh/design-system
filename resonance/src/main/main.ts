@@ -10,7 +10,7 @@ import header from '../components/Header';
 import Icon from '../components/Icon';
 import Input from '../components/Input';
 import LoginForm from '../components/LoginForm';
-import MarginBox from '../components/Marginbox';
+import MarginBox from '../components/Marginbox/Marginbox';
 import Statusbar from '../components/Statusbar';
 import Text from '../components/Text';
 import Toggle from '../components/Toggle';

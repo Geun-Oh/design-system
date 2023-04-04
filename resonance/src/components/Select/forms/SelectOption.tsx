@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BaseStyles } from "@src/styles/themes";
-import MarginBox from '../../Marginbox';
+import MarginBox from '../../Marginbox/Marginbox';
 import Text from '../../Text';
 import { useSelect } from "../context/Select.reducer"
 

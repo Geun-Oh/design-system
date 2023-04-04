@@ -1,4 +1,10 @@
-export const BaseStyles = {
+interface IBaseStyles {
+    [index: string]: {
+        [index: string]: string | number
+    }
+}
+
+export const BaseStyles: IBaseStyles = {
     Color: {
         Black0: "#DDDDDD",
         Black1: "#BBBBBB",

@@ -3,7 +3,7 @@ import React from 'react';
 import { BaseStyles } from "@src/styles/themes";
 import Text from '../../Text';
 import Box from '../../Box/index';
-import MarginBox from '../../Marginbox';
+import MarginBox from '../../Marginbox/Marginbox';
 import Flex from '../../Flex/Flex';
 
 const SelectedArea = ({ innerText }: { innerText: string }) => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { BaseStyles } from "../themes";
 import Icon from "./Icon";
-import MarginBox from './Marginbox';
+import MarginBox from './Marginbox/Marginbox';
 
 interface DropDownProps {
     /**드롭다운의 선택 옵션을 입력해주세요. 배열을 받습니다. */
