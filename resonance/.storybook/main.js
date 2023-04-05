@@ -1,10 +1,17 @@
+const TsconfigPathsPlugin  = require('tsconfig-paths-webpack-plugin')
 module.exports = {
   webpackFinal: async config => {
     config.module.rules.unshift({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    return config;
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        ...config.resolve.plugins.push(new TsconfigPathsPlugin({}))
+      }
+    };
   },
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [

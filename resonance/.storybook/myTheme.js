@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create';
-import { BaseStyles } from '../src/themes';
+import { BaseStyles } from '../src/styles/themes';
 import LogoImg from '../src/icons/RESON&CE.png';
 
 export default create ({
