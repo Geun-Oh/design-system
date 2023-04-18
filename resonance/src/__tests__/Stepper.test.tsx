@@ -28,18 +28,14 @@ describe('Stepper oprating test', () => {
         it('Stepper should be rendered', async () => {
             render(<Default />);
             const Stepper = await screen.findByTestId('Stepper-Default-Wrapper');
-            await waitFor(() => {
-                expect(Stepper).toBeInTheDocument();
-            })
+            expect(Stepper).toBeInTheDocument();
             
         });
 
         it('InitialValue should be 2001', async () => {
             render(<Default />);
             const StepperValue = await screen.findByDisplayValue(2001);
-            await waitFor(() => {
-                expect(StepperValue).toBeInTheDocument();
-            })
+            expect(StepperValue).toBeInTheDocument();
         });
     });
 
@@ -52,9 +48,7 @@ describe('Stepper oprating test', () => {
             // Click event triggered      
             await userEvent.click(UpButton); 
 
-            await waitFor(() => {
-                expect(Value).toHaveValue(2002);
-            })
+            expect(Value).toHaveValue(2002);
         });
     });
 
@@ -68,9 +62,7 @@ describe('Stepper oprating test', () => {
             // Click event triggered
             await userEvent.click(DownButton);
 
-            await waitFor(() => {
-                expect(Value).toHaveValue(2000);
-            })
+            expect(Value).toHaveValue(2000);
         });
     });
 });

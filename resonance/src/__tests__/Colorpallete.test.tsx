@@ -15,3 +15,6 @@ const { Palette } = stories;
  *  > <Palette />
  *      > 
  */
+test('Palette Rendered', () => {
+    render(<Palette />);
+})
