@@ -14,7 +14,7 @@ const Colorpallete = () => {
         <Flex flexWrap='wrap' gap="20px">
             {BaseStyles.Color && Object.keys(BaseStyles.Color).map((key: string) => {
                 return (
-                    <Pallete color={BaseStyles.Color[key]} innerText={key} />
+                    <Pallete color={BaseStyles.Color[key]} innerText={key} key={key} />
                 )
             })}
         </Flex>
